@@ -14,6 +14,7 @@ interface SidebarProps {
   className?: string;
   onClose?: () => void;
   style?: React.CSSProperties;
+  totalPoints: number;
 }
 
 const prefixLabels: Record<string, string> = {
@@ -48,6 +49,7 @@ export function Sidebar({
   className = '',
   onClose,
   style,
+  totalPoints,
 }: SidebarProps) {
   const [subfolders, setSubfolders] = useState<DataSubfolder[]>([]);
   const [loading, setLoading] = useState(true);
@@ -268,8 +270,18 @@ export function Sidebar({
 
       <div className="p-4 border-t border-gray-200 bg-white">
         <div className="text-sm text-gray-600">
-          <p className="font-medium">Selected: {checkedFiles.size} file(s)</p>
-          <p className="mt-1">Check files to display points on map</p>
+          <p className="font-medium flex items-center gap-2">
+            <span className="w-5 h-5 flex items-center justify-center">
+              <span className="text-xs">📁</span>
+            </span>
+            <span>{checkedFiles.size} data file(s) selected</span>
+          </p>
+          <p className="mt-1 flex items-center gap-2">
+            <span className="w-5 h-5 flex items-center justify-center">
+              <span className="text-xs">📍</span>
+            </span>
+            <span>{totalPoints} points on map</span>
+          </p>
         </div>
       </div>
     </div>

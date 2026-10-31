@@ -1,8 +1,6 @@
-import { MapPin, Layers, Info, Filter, X, Menu, Sun, Moon } from 'lucide-react';
+import { MapPin, Info, Filter, X, Menu, Sun, Moon } from 'lucide-react';
 
 interface TopbarProps {
-  totalPoints: number;
-  checkedFilesCount: number;
   subfolderName: string;
   weekdayThreshold: number;
   onWeekdayThresholdChange: (value: number) => void;
@@ -11,7 +9,7 @@ interface TopbarProps {
   onProportionalModeChange: (value: 'off' | 'weekday' | 'weekend') => void;
 }
 
-export function Topbar({ totalPoints, checkedFilesCount, subfolderName, weekdayThreshold, onWeekdayThresholdChange, onMenuClick, proportionalMode, onProportionalModeChange }: TopbarProps) {
+export function Topbar({ subfolderName, weekdayThreshold, onWeekdayThresholdChange, onMenuClick, proportionalMode, onProportionalModeChange }: TopbarProps) {
   return (
     <header className="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
       <div className="flex items-center justify-between flex-wrap gap-4">
@@ -32,14 +30,6 @@ export function Topbar({ totalPoints, checkedFilesCount, subfolderName, weekdayT
           </span>
         </div>
         <div className="flex items-center gap-4 flex-wrap">
-          <div className="hidden md:flex items-center gap-2 text-sm text-gray-600">
-            <Layers className="h-4 w-4" />
-            <span>{checkedFilesCount} data files selected</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <MapPin className="h-4 w-4" />
-            <span>{totalPoints} points</span>
-          </div>
           <div className="flex items-center gap-2">
             <Filter className="h-4 w-4 text-gray-500" />
             <label className="hidden sm:inline text-sm text-gray-600">Min weekday avg:</label>

@@ -188,11 +188,10 @@ function App() {
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
         onClose={() => setSidebarOpen(false)}
+        totalPoints={filteredPoints.length}
       />
       <div className="flex-1 flex flex-col overflow-hidden min-h-0">
         <Topbar
-          totalPoints={filteredPoints.length}
-          checkedFilesCount={checkedFiles.size}
           subfolderName={currentSubfolder?.name || 'Select category'}
           weekdayThreshold={weekdayThreshold}
           onWeekdayThresholdChange={setWeekdayThreshold}
