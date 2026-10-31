@@ -61,6 +61,29 @@ function App() {
     [subfolders, selectedSubfolder]
   );
 
+  // Generate consistent colors for each category
+  const categoryColors = useMemo(() => {
+    const colors = [
+      '#3b82f6', // blue
+      '#8b5cf6', // violet
+      '#ec4899', // pink
+      '#ef4444', // red
+      '#f97316', // orange
+      '#eab308', // yellow
+      '#22c55e', // green
+      '#06b6d4', // cyan
+      '#6366f1', // indigo
+      '#f43f5e', // rose
+      '#14b8a6', // teal
+      '#a855f7', // purple
+    ];
+    const map = new Map<string, string>();
+    currentSubfolder?.files.forEach((file, index) => {
+      map.set(file.name, colors[index % colors.length]);
+    });
+    return map;
+  }, [currentSubfolder]);
+
   const totalPoints = allPoints.length;
 
   if (loading) {
@@ -91,7 +114,7 @@ function App() {
           subfolderName={currentSubfolder?.name || 'Select category'}
         />
         <div className="flex-1 relative min-h-0">
-          <MapComponent points={allPoints} />
+          <MapComponent points={allPoints} categoryColors={categoryColors} />
         </div>
       </div>
     </div>

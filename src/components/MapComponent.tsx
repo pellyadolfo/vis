@@ -4,13 +4,16 @@ import type { ProcessedPoint } from '../types/data';
 
 interface MapComponentProps {
   points: ProcessedPoint[];
+  categoryColors?: Map<string, string>;
   center?: { lat: number; lng: number };
   zoom?: number;
 }
 
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
 
-export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoom = 11 }: MapComponentProps) {
+const DEFAULT_ICON_PATH = 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z';
+
+export function MapComponent({ points, categoryColors = new Map(), center = { lat: 18.92, lng: -99.23 }, zoom = 11 }: MapComponentProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
@@ -100,10 +103,21 @@ export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoo
     points.forEach((point, index) => {
       try {
         console.log(`[MapComponent] Creating marker ${index}:`, point.name, point.parsedCoords);
+        const categoryColor = categoryColors.get(point.category) || '#3b82f6';
+        const icon = {
+          path: DEFAULT_ICON_PATH,
+          fillColor: categoryColor,
+          fillOpacity: 1,
+          strokeColor: '#fff',
+          strokeWeight: 2,
+          scale: 1,
+          anchor: new google.maps.Point(12, 24),
+        };
         const marker = new google.maps.Marker({
           map,
           position: point.parsedCoords,
           title: point.name,
+          icon,
         });
 
         const infoWindow = new google.maps.InfoWindow({

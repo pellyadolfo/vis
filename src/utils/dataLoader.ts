@@ -12,7 +12,7 @@ export function parsePeople(people: string): { weekFrom: number; weekTo: number;
   return { weekFrom, weekTo, weekendFrom, weekendTo };
 }
 
-export function processPoint(point: NotablePoint): ProcessedPoint {
+export function processPoint(point: NotablePoint, category: string): ProcessedPoint {
   const parsedCoords = parseCoords(point.coords);
   const parsedPeople = parsePeople(point.people);
   const avgWeeklyVisitors = (parsedPeople.weekFrom + parsedPeople.weekTo) / 2;
@@ -23,16 +23,17 @@ export function processPoint(point: NotablePoint): ProcessedPoint {
     parsedPeople,
     avgWeeklyVisitors,
     avgWeekendVisitors,
+    category,
   };
 }
 
-export async function loadDataFile(relativePath: string): Promise<ProcessedPoint[]> {
+export async function loadDataFile(relativePath: string, category: string): Promise<ProcessedPoint[]> {
   const response = await fetch(`${DATA_BASE_PATH}${relativePath}`);
   if (!response.ok) {
     throw new Error(`Failed to load ${relativePath}: ${response.statusText}`);
   }
   const data: NotablePoint[] = await response.json();
-  return data.map(processPoint);
+  return data.map(point => processPoint(point, category));
 }
 
 export async function loadSubfolder(subfolder: string): Promise<DataFile[]> {
@@ -58,10 +59,11 @@ export async function loadSubfolder(subfolder: string): Promise<DataFile[]> {
   const dataFiles: DataFile[] = [];
   for (const file of files) {
     try {
-      const points = await loadDataFile(`/${subfolder}/${file}`);
+      const category = file.replace('.json', '');
+      const points = await loadDataFile(`/${subfolder}/${file}`, category);
       if (points.length > 0) {
         dataFiles.push({
-          name: file.replace('.json', ''),
+          name: category,
           path: `/${subfolder}/${file}`,
           points,
         });

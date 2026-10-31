@@ -21,6 +21,7 @@ export interface ProcessedPoint extends NotablePoint {
   parsedPeople: ParsedPeople;
   avgWeeklyVisitors: number;
   avgWeekendVisitors: number;
+  category: string;
 }
 
 export interface DataFile {
