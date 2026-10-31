@@ -18,6 +18,7 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
   const overlayRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
   const markersRef = useRef<google.maps.Marker[]>([]);
+  const infoWindowRef = useRef<google.maps.InfoWindow | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -63,6 +64,14 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
             console.log('[MapComponent] Map created successfully');
             // Trigger resize to ensure map renders correctly
             google.maps.event.trigger(newMap, 'resize');
+
+            // Create shared InfoWindow
+            infoWindowRef.current = new google.maps.InfoWindow();
+
+            // Close InfoWindow when clicking on map
+            newMap.addListener('click', () => {
+              infoWindowRef.current?.close();
+            });
           } catch (mapErr) {
             console.error('[MapComponent] Failed to create map:', mapErr);
             setError(`Failed to create map: ${mapErr instanceof Error ? mapErr.message : 'Unknown error'}`);
@@ -82,6 +91,8 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
     return () => {
       markersRef.current.forEach(marker => { marker.setMap(null); });
       markersRef.current = [];
+      infoWindowRef.current?.close();
+      infoWindowRef.current = null;
       if (mapInstanceRef.current) {
         mapInstanceRef.current = null;
       }
@@ -121,8 +132,7 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
           icon,
         });
 
-        const infoWindow = new google.maps.InfoWindow({
-          content: `
+        const content = `
             <div class="p-2 min-w-[200px]">
               <h3 class="font-bold text-gray-900">${point.name}</h3>
               <p class="text-sm text-gray-600 mt-1">Coordinates: ${point.coords}</p>
@@ -139,11 +149,11 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
                 </div>
               </div>
             </div>
-          `,
-        });
+          `;
 
         marker.addListener('click', () => {
-          infoWindow.open(map, marker);
+          infoWindowRef.current?.setContent(content);
+          infoWindowRef.current?.open(map, marker);
         });
 
         newMarkers.push(marker);
