@@ -152,8 +152,6 @@ function App() {
     return map;
   }, []);
 
-  const totalPoints = allPoints.length;
-
   if (loading) {
     return (
       <div className="h-screen w-screen flex items-center justify-center bg-gray-100">
