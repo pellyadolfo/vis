@@ -1,6 +1,7 @@
 import type { NotablePoint, ProcessedPoint, DataFile, DataSubfolder } from '../types/data';
 
-const DATA_BASE_PATH = '/data';
+// Use base path from import.meta.env.BASE_URL which Vite sets automatically
+const DATA_BASE_PATH = `${import.meta.env.BASE_URL}data`.replace(/\/+$/, '');
 
 export function parseCoords(coords: string): { lat: number; lng: number } {
   const [latStr, lngStr] = coords.split(',').map(s => s.trim());

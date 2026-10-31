@@ -1,0 +1,22 @@
+[
+	{ "name": "Palacio de Gobierno del Estado (Cuernavaca)", "coords": "18.9189, -99.2267", "people": "2000, 3000, 300, 200" },
+	{ "name": "Presidencia Municipal de Cuernavaca", "coords": "18.9201, -99.2289", "people": "1500, 2200, 250, 150" },
+	{ "name": "Presidencia Municipal de Cuautla", "coords": "18.8123, -98.9534", "people": "1200, 1800, 200, 120" },
+	{ "name": "Presidencia Municipal de Jiutepec", "coords": "18.8856, -99.1678", "people": "1000, 1500, 180, 100" },
+	{ "name": "Delegación Federal SCT Morelos", "coords": "18.9156, -99.2189", "people": "900, 1400, 150, 80" },
+	{ "name": "Oficinas SAT Cuernavaca", "coords": "18.9234, -99.2156", "people": "800, 1300, 120, 70" },
+	{ "name": "Presidencia Municipal de Temixco", "coords": "18.8512, -99.2267", "people": "700, 1100, 100, 60" },
+	{ "name": "Delegación IMSS Morelos", "coords": "18.9189, -99.2267", "people": "650, 1000, 100, 50" },
+	{ "name": "Presidencia Municipal de Yautepec", "coords": "18.8765, -99.0756", "people": "600, 950, 90, 50" },
+	{ "name": "Oficinas ISSSTE Cuernavaca", "coords": "18.9245, -99.2089", "people": "550, 850, 80, 40" },
+	{ "name": "Presidencia Municipal de Tepoztlán", "coords": "18.9823, -99.0898", "people": "500, 800, 200, 150" },
+	{ "name": "Juzgados Civiles y Familiares (Cuernavaca)", "coords": "18.9201, -99.2289", "people": "450, 700, 60, 30" },
+	{ "name": "Presidencia Municipal de Zacatepec", "coords": "18.6523, -99.1845", "people": "400, 650, 70, 40" },
+	{ "name": "Oficinas INFONAVIT Morelos", "coords": "18.9156, -99.2189", "people": "380, 600, 50, 30" },
+	{ "name": "Presidencia Municipal de Jojutla", "coords": "18.6156, -99.2234", "people": "350, 550, 60, 35" },
+	{ "name": "Delegación PROFECO Morelos", "coords": "18.9234, -99.2156", "people": "300, 480, 40, 25" },
+	{ "name": "Presidencia Municipal de Tlayacapan", "coords": "18.9567, -98.9823", "people": "280, 450, 80, 50" },
+	{ "name": "Oficinas CFE Cuernavaca", "coords": "18.9189, -99.2267", "people": "250, 400, 35, 20" },
+	{ "name": "Presidencia Municipal de Tetecala", "coords": "18.7245, -99.3756", "people": "220, 350, 40, 25" },
+	{ "name": "Oficinas CONAGUA Morelos", "coords": "18.9245, -99.2089", "people": "200, 320, 30, 18" }
+]

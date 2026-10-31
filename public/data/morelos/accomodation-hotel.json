@@ -1,0 +1,22 @@
+[
+	{ "name": "Hotel Casino de la Selva (Cuernavaca)", "coords": "18.9245, -99.2189", "people": "800, 1200, 1500, 2000" },
+	{ "name": "Hotel Misión Grand Cuernavaca (Cuernavaca)", "coords": "18.9198, -99.2245", "people": "600, 900, 1200, 1600" },
+	{ "name": "Hotel Hacienda de Cortés (Jiutepec)", "coords": "18.8856, -99.1678", "people": "500, 800, 1000, 1400" },
+	{ "name": "Hotel Real del Puente (Tepoztlán)", "coords": "18.9876, -99.0945", "people": "400, 600, 900, 1200" },
+	{ "name": "Hotel Quinta Las Palmas (Cuernavaca)", "coords": "18.9156, -99.2301", "people": "350, 550, 800, 1100" },
+	{ "name": "Hotel Posada del Tepozteco (Tepoztlán)", "coords": "18.9823, -99.0898", "people": "300, 500, 700, 1000" },
+	{ "name": "Hotel Villa Béjar (Jiutepec)", "coords": "18.8798, -99.1723", "people": "280, 450, 650, 900" },
+	{ "name": "Hotel Agua Escondida (Tepoztlán)", "coords": "18.9756, -99.0967", "people": "250, 400, 600, 850" },
+	{ "name": "Hotel Hostería del Ciruelo (Tepoztlán)", "coords": "18.9845, -99.0912", "people": "220, 380, 550, 800" },
+	{ "name": "Hotel Boutique Casa de la Luz (Cuernavaca)", "coords": "18.9234, -99.2156", "people": "200, 350, 500, 750" },
+	{ "name": "Hotel Misión Cuernavaca (Cuernavaca)", "coords": "18.9189, -99.2267", "people": "180, 320, 480, 700" },
+	{ "name": "Hotel Santa Fe (Cuautla)", "coords": "18.8123, -98.9534", "people": "160, 300, 450, 650" },
+	{ "name": "Hotel Plaza Cuautla (Cuautla)", "coords": "18.8167, -98.9489", "people": "150, 280, 420, 600" },
+	{ "name": "Hotel Colonial (Yautepec)", "coords": "18.8765, -99.0756", "people": "140, 250, 400, 550" },
+	{ "name": "Hotel Paraíso (Jojutla)", "coords": "18.6156, -99.2234", "people": "120, 220, 380, 520" },
+	{ "name": "Hotel Real de Minas (Zacatepec)", "coords": "18.6523, -99.1845", "people": "110, 200, 350, 500" },
+	{ "name": "Hotel Posada San Francisco (Tlayacapan)", "coords": "18.9567, -98.9823", "people": "100, 180, 320, 450" },
+	{ "name": "Hotel Los Arcos (Tetecala)", "coords": "18.7245, -99.3756", "people": "90, 160, 300, 420" },
+	{ "name": "Hotel San Carlos (Ayala)", "coords": "18.7543, -98.9845", "people": "80, 150, 280, 400" },
+	{ "name": "Hotel Posada del Sol (Jonacatepec)", "coords": "18.6876, -98.8034", "people": "70, 130, 250, 380" }
+]

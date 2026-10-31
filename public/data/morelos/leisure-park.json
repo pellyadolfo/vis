@@ -1,0 +1,22 @@
+[
+	{ "name": "Parque Chapultepec Cuernavaca", "coords": "18.9245, -99.2089", "people": "3000, 5000, 8000, 12000" },
+	{ "name": "Jardín Borda (Cuernavaca)", "coords": "18.9201, -99.2289", "people": "2000, 3500, 5000, 8000" },
+	{ "name": "Parque Ecológico Chapultepec (Cuernavaca)", "coords": "18.9189, -99.2267", "people": "1500, 2500, 4000, 6000" },
+	{ "name": "Parque Barranca de Chapultepec (Cuernavaca)", "coords": "18.9156, -99.2189", "people": "1200, 2000, 3500, 5000" },
+	{ "name": "Parque Melchor Ocampo (Cuernavaca)", "coords": "18.9234, -99.2156", "people": "1000, 1800, 3000, 4500" },
+	{ "name": "Parque Revolución (Cuautla)", "coords": "18.8123, -98.9534", "people": "900, 1500, 2500, 3800" },
+	{ "name": "Parque Central de Jiutepec", "coords": "18.8856, -99.1678", "people": "800, 1400, 2200, 3500" },
+	{ "name": "Parque Ecológico San Miguel Acapantzingo (Cuernavaca)", "coords": "18.9289, -99.2012", "people": "700, 1200, 2000, 3000" },
+	{ "name": "Jardín Principal Tepoztlán", "coords": "18.9823, -99.0898", "people": "600, 1000, 2000, 3000" },
+	{ "name": "Parque de los Venados (Temixco)", "coords": "18.8512, -99.2267", "people": "500, 900, 1500, 2200" },
+	{ "name": "Parque Juárez (Yautepec)", "coords": "18.8765, -99.0756", "people": "450, 800, 1300, 2000" },
+	{ "name": "Parque Central Jojutla", "coords": "18.6156, -99.2234", "people": "400, 700, 1200, 1800" },
+	{ "name": "Parque Alameda (Zacatepec)", "coords": "18.6523, -99.1845", "people": "350, 600, 1000, 1500" },
+	{ "name": "Parque Ecológico Tepozteco (Tepoztlán)", "coords": "18.9845, -99.0912", "people": "300, 550, 1000, 1400" },
+	{ "name": "Parque Central Tlayacapan", "coords": "18.9567, -98.9823", "people": "280, 500, 900, 1300" },
+	{ "name": "Parque Morelos (Tetecala)", "coords": "18.7245, -99.3756", "people": "250, 450, 800, 1200" },
+	{ "name": "Parque Central Jonacatepec", "coords": "18.6876, -98.8034", "people": "220, 400, 700, 1000" },
+	{ "name": "Parque Municipal Ayala", "coords": "18.7543, -98.9845", "people": "200, 350, 650, 950" },
+	{ "name": "Parque Principal Miacatlán", "coords": "18.7654, -99.3567", "people": "180, 320, 600, 900" },
+	{ "name": "Parque Central Yecapixtla", "coords": "18.8456, -98.8234", "people": "160, 300, 550, 800" }
+]

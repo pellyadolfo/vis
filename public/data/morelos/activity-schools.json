@@ -1,0 +1,22 @@
+[
+	{ "name": "Universidad Autónoma del Estado de Morelos (UAEM) Campus Norte (Cuernavaca)", "coords": "18.9356, -99.2198", "people": "2500, 3500, 600, 900" },
+	{ "name": "Universidad Politécnica del Estado de Morelos (UPEMOR) (Jiutepec)", "coords": "18.8798, -99.1654", "people": "2000, 3000, 500, 800" },
+	{ "name": "Instituto Tecnológico de Cuernavaca (ITC)", "coords": "18.9267, -99.2189", "people": "1800, 2500, 400, 600" },
+	{ "name": "Instituto Tecnológico Superior de Zacatepec (ITSZ)", "coords": "18.6543, -99.1876", "people": "1600, 2300, 350, 550" },
+	{ "name": "Colegio de Bachilleres del Estado de Morelos Plantel Cuernavaca", "coords": "18.9321, -99.2356", "people": "1500, 2200, 300, 450" },
+	{ "name": "Colegio de Estudios Científicos y Tecnológicos del Estado de Morelos (CECyTEM) Plantel Cuautla", "coords": "18.8098, -98.9432", "people": "1100, 1600, 200, 350" },
+	{ "name": "Preparatoria No. 1 de la UAEM (Cuernavaca)", "coords": "18.9201, -99.2256", "people": "1200, 1800, 250, 400" },
+	{ "name": "Escuela Secundaria Técnica No. 1 (Cuernavaca)", "coords": "18.9245, -99.2212", "people": "1000, 1500, 150, 200" },
+	{ "name": "Escuela Secundaria General No. 5 'José Vasconcelos' (Cuautla)", "coords": "18.8145, -98.9521", "people": "900, 1300, 120, 180" },
+	{ "name": "Escuela Primaria Federal 'José María Morelos' (Cuernavaca)", "coords": "18.9184, -99.2296", "people": "800, 1200, 100, 150" },
+	{ "name": "Escuela Secundaria Técnica No. 3 (Jojutla)", "coords": "18.6123, -99.2256", "people": "800, 1200, 100, 150" },
+	{ "name": "Escuela Secundaria General 'Adolfo López Mateos' (Cuernavaca)", "coords": "18.9134, -99.2012", "people": "750, 1100, 100, 150" },
+	{ "name": "Escuela Secundaria Federal 'Cuauhtémoc' (Yautepec)", "coords": "18.8745, -99.0789", "people": "700, 1100, 90, 140" },
+	{ "name": "Escuela Primaria 'Benito Juárez' (Jiutepec)", "coords": "18.8856, -99.1723", "people": "600, 900, 80, 120" },
+	{ "name": "Escuela Primaria 'Miguel Hidalgo' (Temixco)", "coords": "18.8512, -99.2267", "people": "500, 800, 60, 90" },
+	{ "name": "Escuela Secundaria Federal 'José María Pino Suárez' (Tetecala)", "coords": "18.7234, -99.3789", "people": "450, 700, 60, 90" },
+	{ "name": "Escuela Primaria 'Francisco I. Madero' (Cuernavaca)", "coords": "18.9156, -99.2145", "people": "400, 700, 50, 80" },
+	{ "name": "Escuela Primaria 'Emiliano Zapata' (Ayala)", "coords": "18.7567, -98.9876", "people": "350, 600, 40, 70" },
+	{ "name": "Escuela Primaria 'Vicente Guerrero' (Zacatepec)", "coords": "18.6489, -99.1923", "people": "300, 500, 40, 70" },
+	{ "name": "Escuela Primaria 'Lázaro Cárdenas' (Tepoztlán)", "coords": "18.9876, -99.0987", "people": "250, 450, 30, 60" }
+]

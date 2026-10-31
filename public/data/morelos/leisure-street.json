@@ -1,0 +1,22 @@
+[
+	{ "name": "Avenida Morelos (Centro Cuernavaca)", "coords": "18.9201, -99.2289", "people": "25000, 35000, 30000, 40000" },
+	{ "name": "Boulevard Juárez (Cuernavaca)", "coords": "18.9189, -99.2267", "people": "20000, 28000, 25000, 35000" },
+	{ "name": "Avenida Emiliano Zapata (Jiutepec-Cuernavaca)", "coords": "18.8856, -99.1678", "people": "15000, 22000, 18000, 25000" },
+	{ "name": "Avenida Plan de Ayala (Cuernavaca)", "coords": "18.9245, -99.2089", "people": "12000, 18000, 15000, 20000" },
+	{ "name": "Avenida Universidad (Cuernavaca)", "coords": "18.9234, -99.2156", "people": "10000, 15000, 12000, 18000" },
+	{ "name": "Avenida Cuauhtémoc (Cuautla)", "coords": "18.8123, -98.9534", "people": "8000, 12000, 10000, 15000" },
+	{ "name": "Avenida Domingo Diez (Temixco)", "coords": "18.8512, -99.2267", "people": "7000, 11000, 9000, 13000" },
+	{ "name": "Avenida Tepozteco (Tepoztlán)", "coords": "18.9823, -99.0898", "people": "6000, 9000, 12000, 18000" },
+	{ "name": "Avenida Reforma (Yautepec)", "coords": "18.8765, -99.0756", "people": "5000, 8000, 7000, 10000" },
+	{ "name": "Avenida Morelos (Jojutla)", "coords": "18.6156, -99.2234", "people": "4500, 7000, 6000, 9000" },
+	{ "name": "Avenida Zapata (Zacatepec)", "coords": "18.6523, -99.1845", "people": "4000, 6500, 5500, 8000" },
+	{ "name": "Calle Real (Tlayacapan)", "coords": "18.9567, -98.9823", "people": "3500, 5500, 7000, 10000" },
+	{ "name": "Avenida Insurgentes (Tetecala)", "coords": "18.7245, -99.3756", "people": "3000, 4500, 4000, 6000" },
+	{ "name": "Avenida Juárez (Jonacatepec)", "coords": "18.6876, -98.8034", "people": "2500, 4000, 3500, 5000" },
+	{ "name": "Avenida Morelos (Ayala)", "coords": "18.7543, -98.9845", "people": "2200, 3500, 3000, 4500" },
+	{ "name": "Avenida Principal (Miacatlán)", "coords": "18.7654, -99.3567", "people": "2000, 3200, 2800, 4000" },
+	{ "name": "Avenida Revolución (Yecapixtla)", "coords": "18.8456, -98.8234", "people": "1800, 2800, 2500, 3500" },
+	{ "name": "Avenida 5 de Mayo (Zacualpan)", "coords": "18.7123, -99.4123", "people": "1500, 2400, 2000, 3000" },
+	{ "name": "Avenida Hidalgo (Puente de Ixtla)", "coords": "18.7023, -99.3123", "people": "1300, 2000, 1800, 2600" },
+	{ "name": "Avenida Independencia (Tlaltizapán)", "coords": "18.6894, -99.1123", "people": "1200, 1800, 1600, 2400" }
+]
