@@ -12,6 +12,7 @@ function App() {
   const [filePointsCache, setFilePointsCache] = useState<Map<string, ProcessedPoint[]>>(new Map());
   const [loading, setLoading] = useState(true);
   const [weekdayThreshold, setWeekdayThreshold] = useState<number>(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const loadInitialData = useCallback(async () => {
     try {
@@ -164,7 +165,16 @@ function App() {
   }
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-gray-100">
+    <div className="flex h-screen w-screen overflow-hidden bg-gray-100 relative">
+      {/* Mobile sidebar backdrop */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+      
       <Sidebar
         selectedSubfolder={selectedSubfolder}
         onSubfolderChange={handleSubfolderChange}
@@ -173,7 +183,10 @@ function App() {
         onCheckAll={handleCheckAll}
         onUncheckAll={handleUncheckAll}
         onPointsChange={handlePointsChange}
-        className="w-80 flex-shrink-0"
+        className={`w-80 flex-shrink-0 fixed inset-y-0 left-0 z-50 transition-transform duration-300 ease-in-out lg:static lg:block lg:translate-x-0 ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+        onClose={() => setSidebarOpen(false)}
       />
       <div className="flex-1 flex flex-col overflow-hidden min-h-0">
         <Topbar
@@ -182,6 +195,7 @@ function App() {
           subfolderName={currentSubfolder?.name || 'Select category'}
           weekdayThreshold={weekdayThreshold}
           onWeekdayThresholdChange={setWeekdayThreshold}
+          onMenuClick={() => setSidebarOpen(true)}
         />
         <div className="flex-1 relative min-h-0">
           <MapComponent points={filteredPoints} categoryColors={categoryColors} />

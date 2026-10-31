@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { FolderOpen, ChevronDown, MapPin, Loader2, CheckSquare, Square, ChevronRight } from 'lucide-react';
+import { FolderOpen, ChevronDown, MapPin, Loader2, CheckSquare, Square, ChevronRight, X } from 'lucide-react';
 import type { DataSubfolder, DataFile, ProcessedPoint } from '../types/data';
 import { loadAllSubfolders, loadDataFile } from '../utils/dataLoader';
 
@@ -12,6 +12,8 @@ interface SidebarProps {
   onUncheckAll: () => void;
   onPointsChange: (filePath: string, points: ProcessedPoint[]) => void;
   className?: string;
+  onClose?: () => void;
+  style?: React.CSSProperties;
 }
 
 const prefixLabels: Record<string, string> = {
@@ -44,6 +46,8 @@ export function Sidebar({
   onUncheckAll,
   onPointsChange,
   className = '',
+  onClose,
+  style,
 }: SidebarProps) {
   const [subfolders, setSubfolders] = useState<DataSubfolder[]>([]);
   const [loading, setLoading] = useState(true);
@@ -109,23 +113,34 @@ export function Sidebar({
   }
 
   return (
-    <div className={`flex flex-col h-full bg-gray-50 border-r border-gray-200 ${className}`}>
-      <div className="p-4 border-b border-gray-200">
-        <label htmlFor="subfolder-select" className="block text-sm font-medium text-gray-700 mb-2">
-          Data Category
-        </label>
-        <select
-          id="subfolder-select"
-          value={selectedSubfolder}
-          onChange={(e) => onSubfolderChange(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
-        >
-          {subfolders.map((subfolder) => (
-            <option key={subfolder.name} value={subfolder.name}>
-              {subfolder.name}
-            </option>
-          ))}
-        </select>
+    <div className={`flex flex-col h-full bg-gray-50 border-r border-gray-200 ${className}`} style={style}>
+      <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+        <div>
+          <label htmlFor="subfolder-select" className="block text-sm font-medium text-gray-700 mb-2">
+            Data Category
+          </label>
+          <select
+            id="subfolder-select"
+            value={selectedSubfolder}
+            onChange={(e) => onSubfolderChange(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+          >
+            {subfolders.map((subfolder) => (
+              <option key={subfolder.name} value={subfolder.name}>
+                {subfolder.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="lg:hidden p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors ml-4"
+            aria-label="Close sidebar"
+          >
+            <X className="h-6 w-6" />
+          </button>
+        )}
       </div>
 
       <div className="p-4 border-b border-gray-200 flex gap-2">
