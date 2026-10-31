@@ -12,6 +12,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
 
 export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoom = 11 }: MapComponentProps) {
   const mapRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
   const markersRef = useRef<google.maps.Marker[]>([]);
   const [loading, setLoading] = useState(true);
@@ -78,6 +79,9 @@ export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoo
     return () => {
       markersRef.current.forEach(marker => { marker.setMap(null); });
       markersRef.current = [];
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current = null;
+      }
     };
   }, []);
 
@@ -144,34 +148,32 @@ export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoo
     }
 
     return () => {
-      newMarkers.forEach(marker => { marker.setMap(null); });
+      newMarkers.forEach(marker => { 
+        try { marker.setMap(null); } catch {}
+      });
     };
   }, [points]);
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-full bg-gray-100">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading Google Maps...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center h-full bg-gray-100 p-8">
-        <div className="text-center text-red-600">
-          <p className="font-medium mb-2">Map Error</p>
-          <p className="text-sm text-gray-600">{error}</p>
-          <p className="text-xs text-gray-400 mt-4">Add VITE_GOOGLE_MAPS_API_KEY to .env file</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div ref={mapRef} className="map-container h-full w-full" />
+    <div className="relative h-full w-full">
+      <div ref={mapRef} className="map-container h-full w-full" />
+      {loading && (
+        <div ref={overlayRef} className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10 pointer-events-none">
+          <div className="text-center pointer-events-auto">
+            <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading Google Maps...</p>
+          </div>
+        </div>
+      )}
+      {error && (
+        <div ref={overlayRef} className="absolute inset-0 flex items-center justify-center bg-gray-100 p-8 z-10 pointer-events-none">
+          <div className="text-center text-red-600 pointer-events-auto">
+            <p className="font-medium mb-2">Map Error</p>
+            <p className="text-sm text-gray-600">{error}</p>
+            <p className="text-xs text-gray-400 mt-4">Add VITE_GOOGLE_MAPS_API_KEY to .env file</p>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
