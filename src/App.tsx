@@ -184,7 +184,7 @@ function App() {
         onCheckAll={handleCheckAll}
         onUncheckAll={handleUncheckAll}
         onPointsChange={handlePointsChange}
-        className={`w-80 flex-shrink-0 fixed inset-y-0 left-0 z-50 transition-transform duration-300 ease-in-out lg:static lg:block lg:translate-x-0 ${
+        className={`w-80 flex-shrink-0 fixed inset-y-0 left-0 z-50 transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
         onClose={() => setSidebarOpen(false)}
