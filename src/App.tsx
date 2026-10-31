@@ -9,7 +9,7 @@ function App() {
   const [subfolders, setSubfolders] = useState<DataSubfolder[]>([]);
   const [selectedSubfolder, setSelectedSubfolder] = useState<string>('morelos');
   const [checkedFiles, setCheckedFiles] = useState<Set<string>>(new Set());
-  const [allPoints, setAllPoints] = useState<ProcessedPoint[]>([]);
+  const [filePointsCache, setFilePointsCache] = useState<Map<string, ProcessedPoint[]>>(new Map());
   const [loading, setLoading] = useState(true);
 
   const loadInitialData = useCallback(async () => {
@@ -33,7 +33,7 @@ function App() {
   const handleSubfolderChange = useCallback((subfolder: string) => {
     setSelectedSubfolder(subfolder);
     setCheckedFiles(new Set());
-    setAllPoints([]);
+    setFilePointsCache(new Map());
   }, []);
 
   const handleFileToggle = useCallback((filePath: string) => {
@@ -48,11 +48,11 @@ function App() {
     });
   }, []);
 
-  const handlePointsChange = useCallback((points: ProcessedPoint[]) => {
-    setAllPoints(prev => {
-      const existingPoints = new Map(prev.map(p => [`${p.name}-${p.coords}`, p]));
-      points.forEach(p => existingPoints.set(`${p.name}-${p.coords}`, p));
-      return Array.from(existingPoints.values());
+  const handlePointsChange = useCallback((filePath: string, points: ProcessedPoint[]) => {
+    setFilePointsCache(prev => {
+      const next = new Map(prev);
+      next.set(filePath, points);
+      return next;
     });
   }, []);
 
@@ -60,6 +60,18 @@ function App() {
     () => subfolders.find(s => s.name === selectedSubfolder),
     [subfolders, selectedSubfolder]
   );
+
+  // Derive allPoints from checked files and cached points
+  const allPoints = useMemo(() => {
+    const points: ProcessedPoint[] = [];
+    checkedFiles.forEach(filePath => {
+      const filePoints = filePointsCache.get(filePath);
+      if (filePoints) {
+        points.push(...filePoints);
+      }
+    });
+    return points;
+  }, [checkedFiles, filePointsCache]);
 
   // Generate consistent colors for each category
   const categoryColors = useMemo(() => {
@@ -78,11 +90,30 @@ function App() {
       '#a855f7', // purple
     ];
     const map = new Map<string, string>();
-    currentSubfolder?.files.forEach((file, index) => {
-      map.set(file.name, colors[index % colors.length]);
+    // Use all possible categories for consistent coloring, not just loaded files
+    const allCategories = [
+      'accomodation-elder',
+      'accomodation-hotel',
+      'accomodation-residential',
+      'activity-hospitals',
+      'activity-industry',
+      'activity-kinder',
+      'activity-shools',
+      'activity-sport',
+      'activity-universities',
+      'leisure-park',
+      'leisure-restaurant',
+      'leisure-street',
+      'market-food',
+      'market-nofood',
+      'travel-tourism',
+      'travel-transport',
+    ];
+    allCategories.forEach((cat, index) => {
+      map.set(cat, colors[index % colors.length]);
     });
     return map;
-  }, [currentSubfolder]);
+  }, []);
 
   const totalPoints = allPoints.length;
 

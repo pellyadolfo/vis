@@ -102,8 +102,9 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
 
     points.forEach((point, index) => {
       try {
-        console.log(`[MapComponent] Creating marker ${index}:`, point.name, point.parsedCoords);
+        console.log(`[MapComponent] Creating marker ${index}:`, point.name, point.parsedCoords, 'category:', point.category);
         const categoryColor = categoryColors.get(point.category) || '#3b82f6';
+        console.log(`[MapComponent] Color for ${point.category}:`, categoryColor);
         const icon = {
           path: DEFAULT_ICON_PATH,
           fillColor: categoryColor,

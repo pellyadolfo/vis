@@ -8,7 +8,7 @@ interface SidebarProps {
   onSubfolderChange: (subfolder: string) => void;
   checkedFiles: Set<string>;
   onFileToggle: (filePath: string) => void;
-  onPointsChange: (points: ProcessedPoint[]) => void;
+  onPointsChange: (filePath: string, points: ProcessedPoint[]) => void;
 }
 
 export function Sidebar({
@@ -48,8 +48,8 @@ export function Sidebar({
       onFileToggle(fileKey);
       
       try {
-        const points = await loadDataFile(file.path);
-        onPointsChange(points);
+        const points = await loadDataFile(file.path, file.name);
+        onPointsChange(fileKey, points);
       } catch (error) {
         console.error(`Failed to load ${file.path}:`, error);
       }
