@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FolderOpen, ChevronDown, MapPin, Loader2 } from 'lucide-react';
+import { FolderOpen, ChevronDown, MapPin, Loader2, CheckSquare, Square } from 'lucide-react';
 import type { DataSubfolder, DataFile, ProcessedPoint } from '../types/data';
 import { loadAllSubfolders, loadDataFile } from '../utils/dataLoader';
 
@@ -8,6 +8,8 @@ interface SidebarProps {
   onSubfolderChange: (subfolder: string) => void;
   checkedFiles: Set<string>;
   onFileToggle: (filePath: string) => void;
+  onCheckAll: () => void;
+  onUncheckAll: () => void;
   onPointsChange: (filePath: string, points: ProcessedPoint[]) => void;
   className?: string;
 }
@@ -17,6 +19,8 @@ export function Sidebar({
   onSubfolderChange,
   checkedFiles,
   onFileToggle,
+  onCheckAll,
+  onUncheckAll,
   onPointsChange,
   className = '',
 }: SidebarProps) {
@@ -89,6 +93,23 @@ export function Sidebar({
             </option>
           ))}
         </select>
+      </div>
+
+      <div className="p-4 border-b border-gray-200 flex gap-2">
+        <button
+          onClick={onCheckAll}
+          className="flex-1 px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors flex items-center justify-center gap-1"
+        >
+          <CheckSquare className="h-4 w-4" />
+          Check All
+        </button>
+        <button
+          onClick={onUncheckAll}
+          className="flex-1 px-3 py-2 bg-gray-200 text-gray-700 text-sm rounded hover:bg-gray-300 transition-colors flex items-center justify-center gap-1"
+        >
+          <Square className="h-4 w-4" />
+          Uncheck All
+        </button>
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-2">

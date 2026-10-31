@@ -3,7 +3,7 @@ import { Topbar } from './components/Topbar';
 import { Sidebar } from './components/Sidebar';
 import { MapComponent } from './components/MapComponent';
 import type { DataSubfolder, ProcessedPoint } from './types/data';
-import { loadAllSubfolders } from './utils/dataLoader';
+import { loadAllSubfolders, loadDataFile } from './utils/dataLoader';
 
 function App() {
   const [subfolders, setSubfolders] = useState<DataSubfolder[]>([]);
@@ -48,6 +48,36 @@ function App() {
     });
   }, []);
 
+  const currentSubfolder = useMemo(
+    () => subfolders.find(s => s.name === selectedSubfolder),
+    [subfolders, selectedSubfolder]
+  );
+
+  const handleCheckAll = useCallback(async () => {
+    if (!currentSubfolder) return;
+    const allFilePaths = currentSubfolder.files.map(f => `${selectedSubfolder}/${f.name}`);
+    setCheckedFiles(new Set(allFilePaths));
+    
+    // Load data for all files
+    await Promise.all(currentSubfolder.files.map(async (file) => {
+      const fileKey = `${selectedSubfolder}/${file.name}`;
+      try {
+        const points = await loadDataFile(file.path, file.name);
+        setFilePointsCache(prev => {
+          const next = new Map(prev);
+          next.set(fileKey, points);
+          return next;
+        });
+      } catch (error) {
+        console.error(`Failed to load ${file.path}:`, error);
+      }
+    }));
+  }, [currentSubfolder, selectedSubfolder]);
+
+  const handleUncheckAll = useCallback(() => {
+    setCheckedFiles(new Set());
+  }, []);
+
   const handlePointsChange = useCallback((filePath: string, points: ProcessedPoint[]) => {
     setFilePointsCache(prev => {
       const next = new Map(prev);
@@ -55,11 +85,6 @@ function App() {
       return next;
     });
   }, []);
-
-  const currentSubfolder = useMemo(
-    () => subfolders.find(s => s.name === selectedSubfolder),
-    [subfolders, selectedSubfolder]
-  );
 
   // Derive allPoints from checked files and cached points
   const allPoints = useMemo(() => {
@@ -137,6 +162,8 @@ function App() {
         onSubfolderChange={handleSubfolderChange}
         checkedFiles={checkedFiles}
         onFileToggle={handleFileToggle}
+        onCheckAll={handleCheckAll}
+        onUncheckAll={handleUncheckAll}
         onPointsChange={handlePointsChange}
         className="w-80 flex-shrink-0"
       />
