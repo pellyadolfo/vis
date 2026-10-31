@@ -11,18 +11,18 @@ interface TopbarProps {
 export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick, proportionalMode, onProportionalModeChange }: TopbarProps) {
   return (
     <header className="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
-      <div className="flex items-center justify-between flex-wrap gap-4">
-        <div className="flex items-center gap-3 flex-wrap">
-          <button
-            onClick={onMenuClick}
-            className="lg:hidden p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-            aria-label="Open sidebar"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
-          <div className="flex items-center gap-2 ml-4 border-l border-gray-200 pl-4">
-            <Filter className="h-4 w-4 text-gray-500" />
-            <label className="hidden sm:inline text-sm text-gray-600">Min weekday avg:</label>
+<div className="flex items-center justify-between flex-wrap gap-4">
+          <div className="flex items-center gap-3 flex-wrap">
+            <button
+              onClick={onMenuClick}
+              className="lg:hidden p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+              aria-label="Open sidebar"
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+            <div className="flex items-center gap-2 ml-4 border-l border-gray-200 pl-4">
+              <Filter className="h-4 w-4 text-gray-500" />
+              <label className="hidden sm:inline text-sm text-gray-600">Min weekday avg:</label>
             <input
               type="number"
               value={weekdayThreshold}
