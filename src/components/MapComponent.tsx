@@ -13,7 +13,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
 export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoom = 11 }: MapComponentProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
-  const markersRef = useRef<google.maps.marker.AdvancedMarkerElement[]>([]);
+  const markersRef = useRef<google.maps.Marker[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -41,6 +41,7 @@ export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoo
       .load()
       .then(() => {
         console.log('[MapComponent] Google Maps API loaded');
+        
         if (mapRef.current && !mapInstanceRef.current) {
           console.log('[MapComponent] Map ref:', mapRef.current);
           console.log('[MapComponent] Map ref size:', mapRef.current.offsetWidth, 'x', mapRef.current.offsetHeight);
@@ -56,6 +57,8 @@ export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoo
             });
             mapInstanceRef.current = newMap;
             console.log('[MapComponent] Map created successfully');
+            // Trigger resize to ensure map renders correctly
+            google.maps.event.trigger(newMap, 'resize');
           } catch (mapErr) {
             console.error('[MapComponent] Failed to create map:', mapErr);
             setError(`Failed to create map: ${mapErr instanceof Error ? mapErr.message : 'Unknown error'}`);
@@ -73,7 +76,7 @@ export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoo
       });
 
     return () => {
-      markersRef.current.forEach(marker => { marker.map = null; });
+      markersRef.current.forEach(marker => { marker.setMap(null); });
       markersRef.current = [];
     };
   }, []);
@@ -87,43 +90,47 @@ export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoo
 
     console.log('[MapComponent] Updating markers:', points.length);
 
-    markersRef.current.forEach(marker => { marker.map = null; });
-    const newMarkers: google.maps.marker.AdvancedMarkerElement[] = [];
+    markersRef.current.forEach(marker => { marker.setMap(null); });
+    const newMarkers: google.maps.Marker[] = [];
 
-    points.forEach((point) => {
-      const marker = new google.maps.marker.AdvancedMarkerElement({
-        map,
-        position: point.parsedCoords,
-        title: point.name,
-        gmpClickable: true,
-      });
+    points.forEach((point, index) => {
+      try {
+        console.log(`[MapComponent] Creating marker ${index}:`, point.name, point.parsedCoords);
+        const marker = new google.maps.Marker({
+          map,
+          position: point.parsedCoords,
+          title: point.name,
+        });
 
-      const infoWindow = new google.maps.InfoWindow({
-        content: `
-          <div class="p-2 min-w-[200px]">
-            <h3 class="font-bold text-gray-900">${point.name}</h3>
-            <p class="text-sm text-gray-600 mt-1">Coordinates: ${point.coords}</p>
-            <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
-              <div class="bg-blue-50 p-2 rounded">
-                <p class="font-medium text-blue-900">Weekdays</p>
-                <p class="text-blue-700">${point.parsedPeople.weekFrom} - ${point.parsedPeople.weekTo}</p>
-                <p class="text-blue-600">Avg: ${Math.round(point.avgWeeklyVisitors)}</p>
-              </div>
-              <div class="bg-green-50 p-2 rounded">
-                <p class="font-medium text-green-900">Weekends</p>
-                <p class="text-green-700">${point.parsedPeople.weekendFrom} - ${point.parsedPeople.weekendTo}</p>
-                <p class="text-green-600">Avg: ${Math.round(point.avgWeekendVisitors)}</p>
+        const infoWindow = new google.maps.InfoWindow({
+          content: `
+            <div class="p-2 min-w-[200px]">
+              <h3 class="font-bold text-gray-900">${point.name}</h3>
+              <p class="text-sm text-gray-600 mt-1">Coordinates: ${point.coords}</p>
+              <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
+                <div class="bg-blue-50 p-2 rounded">
+                  <p class="font-medium text-blue-900">Weekdays</p>
+                  <p class="text-blue-700">${point.parsedPeople.weekFrom} - ${point.parsedPeople.weekTo}</p>
+                  <p class="text-blue-600">Avg: ${Math.round(point.avgWeeklyVisitors)}</p>
+                </div>
+                <div class="bg-green-50 p-2 rounded">
+                  <p class="font-medium text-green-900">Weekends</p>
+                  <p class="text-green-700">${point.parsedPeople.weekendFrom} - ${point.parsedPeople.weekendTo}</p>
+                  <p class="text-green-600">Avg: ${Math.round(point.avgWeekendVisitors)}</p>
+                </div>
               </div>
             </div>
-          </div>
-        `,
-      });
+          `,
+        });
 
-      marker.addListener('click', () => {
-        infoWindow.open(map, marker);
-      });
+        marker.addListener('click', () => {
+          infoWindow.open(map, marker);
+        });
 
-      newMarkers.push(marker);
+        newMarkers.push(marker);
+      } catch (markerErr) {
+        console.error(`[MapComponent] Failed to create marker for ${point.name}:`, markerErr);
+      }
     });
 
     markersRef.current = newMarkers;
@@ -137,7 +144,7 @@ export function MapComponent({ points, center = { lat: 18.92, lng: -99.23 }, zoo
     }
 
     return () => {
-      newMarkers.forEach(marker => { marker.map = null; });
+      newMarkers.forEach(marker => { marker.setMap(null); });
     };
   }, [points]);
 
