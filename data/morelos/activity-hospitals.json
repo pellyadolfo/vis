@@ -3,8 +3,8 @@
 	{ "name": "Hospital General de Cuernavaca Dr. José G. Parres (Cuernavaca) – Hospital público estatal / IMSS-Bienestar", "coords": "18.935960312602305, -99.23298573007354", "people": "2000, 3000, 450, 600" },
 	{ "name": "Hospital Regional Centenario de la Revolución Mexicana (ISSSTE)", "coords": "18.847437111816816, -99.19786560190101", "people": "1800, 2500, 500, 750" },
 	{ "name": "Hospital del Niño Morelense (HNM) (Emiliano Zapata)", "coords": "18.844382174253848, -99.20232270309111", "people": "1200, 1800, 200, 350" },
-	{ "name": "Hospital General de Zona No. 7 del IMSS (Cuautla)", "coords": "18.81076427408228, -98.94938227492058", "people": "1000, 1500, 500, 750" },
-	{ "name": "Hospital General IMSS-Bienestar de Jiutepec", "coords": "18.875590645316354, -99.16912519200514", "people": "600, 900, 250, 400" },
+	{ "name": "Hospital General IMSS-Bienestar de Jiutepec", "coords": "18.875590645316354, -99.16912519200514", "people": "1000, 1500, 250, 400" },
+	{ "name": "Hospital General de Zona No. 7 del IMSS (Cuautla)", "coords": "18.81076427408228, -98.94938227492058", "people": "800, 1200, 500, 750" },
 	{ "name": "Clínica Hospital 'Dr. Rafael Barba Ocampo' ISSSTE (Cuautla)", "coords": "18.813917618836026, -98.94725528317399", "people": "600, 900, 300, 450" },
 
 	{ "name": "Sanatorio Henri Dunant, A.C.", "coords": "18.9284, -99.2205", "people": "120, 220, 60, 110" },
