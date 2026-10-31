@@ -11,7 +11,7 @@ function App() {
   const [checkedFiles, setCheckedFiles] = useState<Set<string>>(new Set());
   const [filePointsCache, setFilePointsCache] = useState<Map<string, ProcessedPoint[]>>(new Map());
   const [loading, setLoading] = useState(true);
-  const [weekdayThreshold, setWeekdayThreshold] = useState<number>(0);
+  const [weekdayThreshold, setWeekdayThreshold] = useState<number>(500);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [proportionalMode, setProportionalMode] = useState<'off' | 'weekday' | 'weekend'>('off');
 
