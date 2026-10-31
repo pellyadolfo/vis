@@ -1,7 +1,6 @@
-import { MapPin, Info, Filter, X, Menu, Sun, Moon } from 'lucide-react';
+import { Info, Filter, X, Menu, Sun, Moon } from 'lucide-react';
 
 interface TopbarProps {
-  subfolderName: string;
   weekdayThreshold: number;
   onWeekdayThresholdChange: (value: number) => void;
   onMenuClick: () => void;
@@ -9,7 +8,7 @@ interface TopbarProps {
   onProportionalModeChange: (value: 'off' | 'weekday' | 'weekend') => void;
 }
 
-export function Topbar({ subfolderName, weekdayThreshold, onWeekdayThresholdChange, onMenuClick, proportionalMode, onProportionalModeChange }: TopbarProps) {
+export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick, proportionalMode, onProportionalModeChange }: TopbarProps) {
   return (
     <header className="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
       <div className="flex items-center justify-between flex-wrap gap-4">
@@ -21,13 +20,6 @@ export function Topbar({ subfolderName, weekdayThreshold, onWeekdayThresholdChan
           >
             <Menu className="h-6 w-6" />
           </button>
-          <h1 className="text-xl lg:text-2xl font-bold text-gray-900 flex items-center gap-2">
-            <MapPin className="h-5 lg:h-6 w-5 lg:w-6 text-blue-600" />
-            Vending Information System
-          </h1>
-          <span className="hidden sm:inline-block px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">
-            {subfolderName}
-          </span>
         </div>
         <div className="flex items-center gap-4 flex-wrap">
           <div className="flex items-center gap-2">
