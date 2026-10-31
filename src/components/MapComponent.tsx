@@ -135,7 +135,6 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
         const content = `
             <div class="p-2 min-w-[200px]">
               <h3 class="font-bold text-gray-900">${point.name}</h3>
-              <p class="text-sm text-gray-600 mt-1">Coordinates: ${point.coords}</p>
               <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
                 <div class="bg-blue-50 p-2 rounded">
                   <p class="font-medium text-blue-900">Weekdays</p>
