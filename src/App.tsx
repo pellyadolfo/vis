@@ -11,6 +11,7 @@ function App() {
   const [checkedFiles, setCheckedFiles] = useState<Set<string>>(new Set());
   const [filePointsCache, setFilePointsCache] = useState<Map<string, ProcessedPoint[]>>(new Map());
   const [loading, setLoading] = useState(true);
+  const [weekdayThreshold, setWeekdayThreshold] = useState<number>(0);
 
   const loadInitialData = useCallback(async () => {
     try {
@@ -98,6 +99,15 @@ function App() {
     return points;
   }, [checkedFiles, filePointsCache]);
 
+  // Filter points by weekday threshold
+  const filteredPoints = useMemo(() => {
+    if (weekdayThreshold <= 0) return allPoints;
+    return allPoints.filter(point => {
+      const avgWeekday = (point.parsedPeople.weekFrom + point.parsedPeople.weekTo) / 2;
+      return avgWeekday >= weekdayThreshold;
+    });
+  }, [allPoints, weekdayThreshold]);
+
   // Generate consistent colors for each category
   const categoryColors = useMemo(() => {
     const colors = [
@@ -169,12 +179,14 @@ function App() {
       />
       <div className="flex-1 flex flex-col overflow-hidden min-h-0">
         <Topbar
-          totalPoints={totalPoints}
+          totalPoints={filteredPoints.length}
           checkedFilesCount={checkedFiles.size}
           subfolderName={currentSubfolder?.name || 'Select category'}
+          weekdayThreshold={weekdayThreshold}
+          onWeekdayThresholdChange={setWeekdayThreshold}
         />
         <div className="flex-1 relative min-h-0">
-          <MapComponent points={allPoints} categoryColors={categoryColors} />
+          <MapComponent points={filteredPoints} categoryColors={categoryColors} />
         </div>
       </div>
     </div>
