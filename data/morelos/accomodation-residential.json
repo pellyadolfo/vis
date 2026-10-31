@@ -1,0 +1,22 @@
+[
+	{ "name": "Fraccionamiento Lomas de Cuernavaca", "coords": "18.9356, -99.2198", "people": "15000, 15000, 15000, 15000" },
+	{ "name": "Colonia Satélite (Cuernavaca)", "coords": "18.9289, -99.2012", "people": "12000, 12000, 12000, 12000" },
+	{ "name": "Fraccionamiento Rancho Cortés (Jiutepec)", "coords": "18.8798, -99.1723", "people": "10000, 10000, 10000, 10000" },
+	{ "name": "Colonia Emiliano Zapata (Cuautla)", "coords": "18.8123, -98.9534", "people": "9000, 9000, 9000, 9000" },
+	{ "name": "Fraccionamiento Los Héroes (Temixco)", "coords": "18.8512, -99.2267", "people": "8000, 8000, 8000, 8000" },
+	{ "name": "Colonia Adolfo López Mateos (Cuernavaca)", "coords": "18.9201, -99.2289", "people": "7500, 7500, 7500, 7500" },
+	{ "name": "Fraccionamiento Vista Hermosa (Cuernavaca)", "coords": "18.9289, -99.2012", "people": "7000, 7000, 7000, 7000" },
+	{ "name": "Colonia Morelos (Jiutepec)", "coords": "18.8856, -99.1678", "people": "6500, 6500, 6500, 6500" },
+	{ "name": "Fraccionamiento Real del Puente (Tepoztlán)", "coords": "18.9823, -99.0898", "people": "6000, 6000, 6000, 6000" },
+	{ "name": "Colonia Santa María (Cuautla)", "coords": "18.8167, -98.9489", "people": "5500, 5500, 5500, 5500" },
+	{ "name": "Fraccionamiento Bugambilias (Cuernavaca)", "coords": "18.9245, -99.2089", "people": "5000, 5000, 5000, 5000" },
+	{ "name": "Colonia Centro (Yautepec)", "coords": "18.8765, -99.0756", "people": "4500, 4500, 4500, 4500" },
+	{ "name": "Fraccionamiento Las Palmas (Zacatepec)", "coords": "18.6523, -99.1845", "people": "4000, 4000, 4000, 4000" },
+	{ "name": "Colonia 3 de Mayo (Jojutla)", "coords": "18.6156, -99.2234", "people": "3500, 3500, 3500, 3500" },
+	{ "name": "Fraccionamiento El Vergel (Tlayacapan)", "coords": "18.9567, -98.9823", "people": "3000, 3000, 3000, 3000" },
+	{ "name": "Colonia Revolución (Tetecala)", "coords": "18.7245, -99.3756", "people": "2800, 2800, 2800, 2800" },
+	{ "name": "Fraccionamiento San Gabriel (Jonacatepec)", "coords": "18.6876, -98.8034", "people": "2500, 2500, 2500, 2500" },
+	{ "name": "Colonia Morelos (Ayala)", "coords": "18.7543, -98.9845", "people": "2200, 2200, 2200, 2200" },
+	{ "name": "Fraccionamiento Los Pinos (Miacatlán)", "coords": "18.7654, -99.3567", "people": "2000, 2000, 2000, 2000" },
+	{ "name": "Colonia Centro (Yecapixtla)", "coords": "18.8456, -98.8234", "people": "1800, 1800, 1800, 1800" }
+]

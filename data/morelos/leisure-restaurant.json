@@ -1,0 +1,22 @@
+[
+	{ "name": "Restaurant Bar El Mesón (Cuernavaca)", "coords": "18.9201, -99.2289", "people": "800, 1200, 2000, 3000" },
+	{ "name": "Las Mañanitas Hotel Restaurant (Cuernavaca)", "coords": "18.9189, -99.2267", "people": "600, 900, 1500, 2200" },
+	{ "name": "Restaurant Boca del Río (Cuautla)", "coords": "18.8123, -98.9534", "people": "500, 800, 1200, 1800" },
+	{ "name": "El Costeño (Jiutepec)", "coords": "18.8856, -99.1678", "people": "450, 700, 1100, 1600" },
+	{ "name": "Restaurant Los Portales (Cuernavaca)", "coords": "18.9234, -99.2156", "people": "400, 650, 1000, 1500" },
+	{ "name": "Casa Piedra Restaurant (Tepoztlán)", "coords": "18.9823, -99.0898", "people": "350, 550, 900, 1400" },
+	{ "name": "Restaurant Hecho en México (Cuernavaca)", "coords": "18.9156, -99.2189", "people": "300, 500, 800, 1200" },
+	{ "name": "La India Bonita (Cuernavaca)", "coords": "18.9245, -99.2089", "people": "280, 450, 750, 1100" },
+	{ "name": "Restaurant Gaia (Tepoztlán)", "coords": "18.9845, -99.0912", "people": "250, 400, 700, 1000" },
+	{ "name": "El Tlayuda (Jiutepec)", "coords": "18.8798, -99.1723", "people": "220, 380, 650, 950" },
+	{ "name": "Restaurant El Ciruelo (Tepoztlán)", "coords": "18.9756, -99.0967", "people": "200, 350, 600, 900" },
+	{ "name": "La Parada (Cuernavaca)", "coords": "18.9189, -99.2267", "people": "180, 320, 550, 850" },
+	{ "name": "Restaurant San José (Tlayacapan)", "coords": "18.9567, -98.9823", "people": "160, 280, 500, 750" },
+	{ "name": "El Almacén (Cuernavaca)", "coords": "18.9201, -99.2289", "people": "150, 250, 450, 700" },
+	{ "name": "Restaurant Montecarlo (Cuautla)", "coords": "18.8167, -98.9489", "people": "140, 240, 420, 650" },
+	{ "name": "Casa de la Cuesta (Yautepec)", "coords": "18.8765, -99.0756", "people": "130, 220, 400, 600" },
+	{ "name": "Restaurant El Huacal (Jojutla)", "coords": "18.6156, -99.2234", "people": "120, 200, 380, 550" },
+	{ "name": "La Casona (Zacatepec)", "coords": "18.6523, -99.1845", "people": "110, 180, 350, 500" },
+	{ "name": "Restaurant Doña Mary (Tetecala)", "coords": "18.7245, -99.3756", "people": "100, 160, 320, 450" },
+	{ "name": "El Rinconcito (Miacatlán)", "coords": "18.7654, -99.3567", "people": "90, 150, 300, 420" }
+]

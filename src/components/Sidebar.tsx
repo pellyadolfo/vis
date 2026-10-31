@@ -9,6 +9,7 @@ interface SidebarProps {
   checkedFiles: Set<string>;
   onFileToggle: (filePath: string) => void;
   onPointsChange: (filePath: string, points: ProcessedPoint[]) => void;
+  className?: string;
 }
 
 export function Sidebar({
@@ -17,6 +18,7 @@ export function Sidebar({
   checkedFiles,
   onFileToggle,
   onPointsChange,
+  className = '',
 }: SidebarProps) {
   const [subfolders, setSubfolders] = useState<DataSubfolder[]>([]);
   const [loading, setLoading] = useState(true);
@@ -70,7 +72,7 @@ export function Sidebar({
   }
 
   return (
-    <div className="flex flex-col h-full bg-gray-50 border-r border-gray-200">
+    <div className={`flex flex-col h-full bg-gray-50 border-r border-gray-200 ${className}`}>
       <div className="p-4 border-b border-gray-200">
         <label htmlFor="subfolder-select" className="block text-sm font-medium text-gray-700 mb-2">
           Data Category
