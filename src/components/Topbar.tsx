@@ -20,9 +20,7 @@ export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick
           >
             <Menu className="h-6 w-6" />
           </button>
-        </div>
-        <div className="flex items-center gap-4 flex-wrap">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ml-4 border-l border-gray-200 pl-4">
             <Filter className="h-4 w-4 text-gray-500" />
             <label className="hidden sm:inline text-sm text-gray-600">Min weekday avg:</label>
             <input
@@ -47,6 +45,8 @@ export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick
               </button>
             )}
           </div>
+        </div>
+        <div className="flex items-center gap-4 flex-wrap">
           <div className="flex items-center gap-2">
             <button
               onClick={() => onProportionalModeChange(proportionalMode === 'weekday' ? 'off' : 'weekday')}
