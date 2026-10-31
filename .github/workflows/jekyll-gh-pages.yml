@@ -25,7 +25,7 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "GOOGLE_MAPS_API_KEY=${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}" >> .env
+          echo "VITE_GOOGLE_MAPS_API_KEY=${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}" >> .env
           # If your local .env has other variables, add them here too:
           # echo "ANOTHER_VAR=value" >> .env
 
