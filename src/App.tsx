@@ -98,7 +98,7 @@ function App() {
       'activity-hospitals',
       'activity-industry',
       'activity-kinder',
-      'activity-shools',
+      'activity-schools',
       'activity-sport',
       'activity-universities',
       'leisure-park',
