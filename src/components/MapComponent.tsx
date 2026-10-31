@@ -154,14 +154,6 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
 
     markersRef.current = newMarkers;
 
-    if (points.length > 0) {
-      const bounds = new google.maps.LatLngBounds();
-      points.forEach(point => {
-        bounds.extend(point.parsedCoords);
-      });
-      map.fitBounds(bounds, { top: 50, right: 50, bottom: 50, left: 50 });
-    }
-
     return () => {
       newMarkers.forEach(marker => { 
         try { marker.setMap(null); } catch {}
