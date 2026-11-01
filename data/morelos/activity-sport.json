@@ -1,9 +1,10 @@
 [
-	{ "name": "Estadio Centenario (Cuernavaca)", "coords": "18.9156, -99.2189", "people": "5000, 8000, 12000, 18000" },
-	{ "name": "Unidad Deportiva Cuernavaca (INDEM)", "coords": "18.9245, -99.2089", "people": "2000, 3500, 5000, 8000" },
-	{ "name": "Estadio Agustín Coruco Díaz (Zacatepec)", "coords": "18.6523, -99.1845", "people": "3000, 5000, 8000, 12000" },
-	{ "name": "Estadio Isidro Gil Tapia (Cuautla)", "coords": "18.8145, -98.9521", "people": "1500, 2500, 4000, 6000" },
+	{ "name": "Estadio Centenario (Cuernavaca)", "coords": "18.97033094435607, -99.24648304413323", "people": "5000, 8000, 12000, 18000" },
+	{ "name": "Unidad Deportiva Cuernavaca (INDEM)", "coords": "18.92271625880878, -99.20473892396224", "people": "2000, 3500, 5000, 8000" },
+	{ "name": "Estadio Agustín Coruco Díaz (Zacatepec)", "coords": "18.655138917311263, -99.19221993987485", "people": "3000, 5000, 8000, 12000" },
+	{ "name": "Estadio Isidro Gil Tapia (Cuautla)", "coords": "18.80679636600261, -98.9490847496744", "people": "1500, 2500, 4000, 6000" },
 	{ "name": "Polideportivo Centenario (Jiutepec)", "coords": "18.8856, -99.1678", "people": "1200, 2000, 3000, 4500" },
+
 	{ "name": "Unidad Deportiva La Lagunilla (Temixco)", "coords": "18.8512, -99.2267", "people": "800, 1500, 2000, 3000" },
 	{ "name": "Complejo Deportivo Emiliano Zapata (Jiutepec)", "coords": "18.8798, -99.1723", "people": "700, 1200, 1800, 2500" },
 	{ "name": "Estadio Mariano Matamoros (Xochitepec)", "coords": "18.7894, -99.2234", "people": "600, 1000, 1500, 2200" },

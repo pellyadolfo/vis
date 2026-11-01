@@ -4,7 +4,7 @@
     "loading": "Cargando Vendingtelligence..."
   },
   "sidebar": {
-    "dataCategory": "Categoría de Datos",
+    "dataCategory": "Seleccionar Región",
     "checkAll": "Marcar Todo",
     "uncheckAll": "Desmarcar Todo",
     "items": "{{count}} elementos",
