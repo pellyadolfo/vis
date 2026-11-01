@@ -12,8 +12,8 @@
 	{ "name": "Centro Médico San Diego", "coords": "18.8242, -98.9519", "people": "80, 140, 35, 70" },
 	{ "name": "Hospital Palmas", "coords": "18.9118, -99.2312", "people": "70, 130, 30, 60" },
 	{ "name": "Hospital Constituyentes", "coords": "18.8188, -98.9427", "people": "70, 120, 30, 60" },
-	{ "name": "Sanatorio Hidalgo de Morelos", "coords": "18.9355, -99.2374", "people": "50, 100, 25, 50" },
-	{ "name": "Clínica San Juan", "coords": "18.9251, -99.2435", "people": "40, 80, 20, 40" },
 	{ "name": "Centro Médico del Ángel ", "coords": "18.8095, -98.9482", "people": "60, 110, 30, 60" },
-	{ "name": "Centro Médico Jiutepec", "coords": "18.8789, -99.1748", "people": "50, 90, 20, 45" }
+	{ "name": "Sanatorio Hidalgo de Morelos", "coords": "18.9355, -99.2374", "people": "50, 100, 25, 50" },
+	{ "name": "Centro Médico Jiutepec", "coords": "18.8789, -99.1748", "people": "50, 90, 20, 45" },
+	{ "name": "Clínica San Juan", "coords": "18.9251, -99.2435", "people": "40, 80, 20, 40" }
 ]
