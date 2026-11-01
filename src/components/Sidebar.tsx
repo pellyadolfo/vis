@@ -197,11 +197,11 @@ export function Sidebar({
                 </div>
               </button>
               {expandedGroups.has(prefix) && (
-                <div className="p-4 space-y-2">
+                <div className="p-2 space-y-1">
                   {files.map((file) => (
                     <div
                       key={file.name}
-                      className="bg-gray-50 border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow"
+                      className="bg-white border border-gray-200 rounded-lg p-2 hover:shadow-md transition-shadow"
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
@@ -231,7 +231,7 @@ export function Sidebar({
                           else next.add(file.name);
                           return next;
                         })}
-                        className="mt-2 w-full text-left flex items-center gap-1 text-xs text-gray-500 hover:text-gray-700"
+                        className="mt-1 w-full text-left flex items-center gap-1 text-xs text-gray-500 hover:text-gray-700"
                       >
                         <ChevronDown
                           className={`h-4 w-4 transition-transform ${expandedFiles.has(file.name) ? 'rotate-180' : ''}`}
@@ -240,7 +240,7 @@ export function Sidebar({
                       </button>
 
                       {expandedFiles.has(file.name) && (
-                        <div className="mt-2 space-y-1 max-h-48 overflow-y-auto">
+                        <div className="mt-1 space-y-0.5 max-h-48 overflow-y-auto">
                           {file.points.slice(0, 20).map((point, index) => (
                             <div
                               key={index}
