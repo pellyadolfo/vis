@@ -1,5 +1,5 @@
 [
-	{ "name": "Complejo Industrial Nissan (Civac)", "coords": "18.8856, -99.1678", "people": "3000, 4800, 600, 300" },
+	{ "name": "Complejo Industrial Nissan (Civac)", "coords": "18.912559839519517, -99.16706946697417", "people": "3000, 4800, 600, 300" },
 	{ "name": "Unilever (CIVAC)", "coords": "18.91580181482392, -99.17608785832888", "people": "600, 600, 600, 600" },
 	{ "name": "Mayekawa (CIVAC)", "coords": "18.918930322500344, -99.16980450365052", "people": "450, 650, 450, 650" },
 	{ "name": "Vantive / Baxter (CIVAC)", "coords": "18.92243196877515, -99.17064024598015", "people": "250, 500, 250, 500" },
@@ -9,7 +9,6 @@
 	{ "name": "Planta PepsiCo (Cuautla)", "coords": "18.8123, -98.9534", "people": "1100, 1800, 220, 110" },
 	{ "name": "Planta Nestlé (Cuernavaca)", "coords": "18.9234, -99.2156", "people": "900, 1400, 180, 90" },
 	{ "name": "Planta Herdez (Cuautla)", "coords": "18.8167, -98.9489", "people": "750, 1200, 150, 75" },
-	{ "name": "Planta Gamesa (Jiutepec)", "coords": "18.8856, -99.1678", "people": "650, 1000, 130, 65" },
 	{ "name": "Planta Modelo (Cuernavaca)", "coords": "18.9189, -99.2267", "people": "550, 900, 110, 55" },
 	{ "name": "Planta Corona (Temixco)", "coords": "18.8512, -99.2267", "people": "450, 750, 90, 45" }
 
