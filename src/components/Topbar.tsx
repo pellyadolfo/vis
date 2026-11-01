@@ -1,4 +1,5 @@
-import { Info, Filter, X, Menu, Calendar, CalendarOff, Eye, EyeOff } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Info, Filter, X, Menu, Calendar, CalendarOff, Eye, EyeOff, Globe } from 'lucide-react';
 
 interface TopbarProps {
   weekdayThreshold: number;
@@ -8,9 +9,13 @@ interface TopbarProps {
   onProportionalModeChange: (value: 'off' | 'weekday' | 'weekend') => void;
   showMapLabels: boolean;
   onShowMapLabelsChange: (value: boolean) => void;
+  language: 'en' | 'es';
+  onLanguageChange: (lang: 'en' | 'es') => void;
 }
 
-export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick, proportionalMode, onProportionalModeChange, showMapLabels, onShowMapLabelsChange }: TopbarProps) {
+export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick, proportionalMode, onProportionalModeChange, showMapLabels, onShowMapLabelsChange, language, onLanguageChange }: TopbarProps) {
+  const { t } = useTranslation();
+
   return (
     <header className="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
 <div className="flex items-center justify-between flex-wrap gap-4">
@@ -24,7 +29,7 @@ export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick
             </button>
             <div className="flex items-center gap-2 ml-4 border-l border-gray-200 pl-4">
               <Filter className="h-4 w-4 text-gray-500" />
-              <label className="hidden sm:inline text-sm text-gray-600">Min weekday avg:</label>
+              <label className="hidden sm:inline text-sm text-gray-600">{t('topbar.minWeekdayAvg')}</label>
             <input
               type="number"
               value={weekdayThreshold}
@@ -40,8 +45,8 @@ export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick
               <button
                 onClick={() => onWeekdayThresholdChange(0)}
                 className="text-gray-400 hover:text-red-500"
-                title="Clear filter"
-                aria-label="Clear filter"
+                title={t('topbar.clearFilter')}
+                aria-label={t('topbar.clearFilter')}
               >
                 <X className="h-4 w-4" />
               </button>
@@ -53,8 +58,8 @@ export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick
             <button
               onClick={() => onProportionalModeChange(proportionalMode === 'weekday' ? 'off' : 'weekday')}
               className={`p-2 rounded-lg transition-colors ${proportionalMode === 'weekday' ? 'bg-yellow-100 text-yellow-700' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'}`}
-              title={proportionalMode === 'weekday' ? 'Disable weekday proportional circles' : 'Show weekday proportional circles'}
-              aria-label={proportionalMode === 'weekday' ? 'Disable weekday proportional circles' : 'Show weekday proportional circles'}
+              title={proportionalMode === 'weekday' ? t('topbar.disableWeekday') : t('topbar.enableWeekday')}
+              aria-label={proportionalMode === 'weekday' ? t('topbar.disableWeekday') : t('topbar.enableWeekday')}
               aria-pressed={proportionalMode === 'weekday'}
             >
               <Calendar className="h-5 w-5" />
@@ -62,8 +67,8 @@ export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick
             <button
               onClick={() => onProportionalModeChange(proportionalMode === 'weekend' ? 'off' : 'weekend')}
               className={`p-2 rounded-lg transition-colors ${proportionalMode === 'weekend' ? 'bg-indigo-100 text-indigo-700' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'}`}
-              title={proportionalMode === 'weekend' ? 'Disable weekend proportional circles' : 'Show weekend proportional circles'}
-              aria-label={proportionalMode === 'weekend' ? 'Disable weekend proportional circles' : 'Show weekend proportional circles'}
+              title={proportionalMode === 'weekend' ? t('topbar.disableWeekend') : t('topbar.enableWeekend')}
+              aria-label={proportionalMode === 'weekend' ? t('topbar.disableWeekend') : t('topbar.enableWeekend')}
               aria-pressed={proportionalMode === 'weekend'}
             >
               <CalendarOff className="h-5 w-5" />
@@ -71,14 +76,27 @@ export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick
             <button
               onClick={() => onShowMapLabelsChange(!showMapLabels)}
               className={`p-2 rounded-lg transition-colors ${showMapLabels ? 'bg-green-100 text-green-700' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'}`}
-              title={showMapLabels ? 'Hide Google Maps labels' : 'Show Google Maps labels'}
-              aria-label={showMapLabels ? 'Hide Google Maps labels' : 'Show Google Maps labels'}
+              title={showMapLabels ? t('topbar.hideMapLabels') : t('topbar.showMapLabels')}
+              aria-label={showMapLabels ? t('topbar.hideMapLabels') : t('topbar.showMapLabels')}
               aria-pressed={!showMapLabels}
             >
               {showMapLabels ? <Eye className="h-5 w-5" /> : <EyeOff className="h-5 w-5" />}
             </button>
+            <button
+              onClick={() => onLanguageChange(language === 'en' ? 'es' : 'en')}
+              className="p-2 rounded-lg transition-colors text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+              title={language === 'en' ? 'Switch to Spanish' : 'Cambiar a Inglés'}
+              aria-label={language === 'en' ? 'Switch to Spanish' : 'Cambiar a Inglés'}
+            >
+              <Globe className="h-5 w-5" />
+              <span className="hidden sm:inline ml-1 text-xs font-medium">
+                {language === 'en' ? 'ES' : 'EN'}
+              </span>
+            </button>
           </div>
-          <Info className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer" />
+          <div className="p-2 text-gray-400 hover:text-gray-600 cursor-pointer" title={t('topbar.info')}>
+            <Info className="h-5 w-5" />
+          </div>
         </div>
       </div>
     </header>

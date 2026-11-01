@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
+import { useTranslation } from 'react-i18next';
 import type { ProcessedPoint } from '../types/data';
 
 interface MapComponentProps {
@@ -16,6 +17,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
 const DEFAULT_ICON_PATH = 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z';
 
 export function MapComponent({ points, categoryColors = new Map(), center = { lat: 18.92, lng: -99.23 }, zoom = 11, proportionalMode = 'off', showMapLabels = true }: MapComponentProps) {
+  const { t } = useTranslation();
   const mapRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
@@ -62,7 +64,7 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
   useEffect(() => {
     console.log('[MapComponent] useEffect init, API Key:', !!GOOGLE_MAPS_API_KEY);
     if (!GOOGLE_MAPS_API_KEY) {
-      setError('Google Maps API key not configured. Please set VITE_GOOGLE_MAPS_API_KEY in .env');
+      setError(t('map.apiKeyMissing'));
       setLoading(false);
       return;
     }
@@ -113,7 +115,7 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
             updateMarkers(newMap, points, categoryColors, proportionalMode);
           } catch (mapErr) {
             console.error('[MapComponent] Failed to create map:', mapErr);
-            setError(`Failed to create map: ${mapErr instanceof Error ? mapErr.message : 'Unknown error'}`);
+            setError(t('map.createError', { error: mapErr instanceof Error ? mapErr.message : 'Unknown error' }));
           }
         } else {
           console.warn('[MapComponent] Map ref not ready or map exists:', !!mapRef.current, !!mapInstanceRef.current);
@@ -121,7 +123,7 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
       })
       .catch((err) => {
         console.error('[MapComponent] Failed to load Google Maps:', err);
-        setError(`Failed to load Google Maps: ${err instanceof Error ? err.message : 'Unknown error'}`);
+        setError(t('map.loadError', { error: err instanceof Error ? err.message : 'Unknown error' }));
       })
       .finally(() => {
         setLoading(false);
@@ -210,14 +212,14 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
               <h3 class="font-bold text-gray-900">${point.name}</h3>
               <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
                 <div class="bg-blue-50 p-2 rounded">
-                  <p class="font-medium text-blue-900">Weekdays</p>
+                  <p class="font-medium text-blue-900">${t('map.weekdays')}</p>
                   <p class="text-blue-700">${point.parsedPeople.weekFrom} - ${point.parsedPeople.weekTo}</p>
-                  <p class="text-blue-600">Avg: ${Math.round(point.avgWeeklyVisitors)}</p>
+                  <p class="text-blue-600">${t('map.avg')} ${Math.round(point.avgWeeklyVisitors)}</p>
                 </div>
                 <div class="bg-green-50 p-2 rounded">
-                  <p class="font-medium text-green-900">Weekends</p>
+                  <p class="font-medium text-green-900">${t('map.weekends')}</p>
                   <p class="text-green-700">${point.parsedPeople.weekendFrom} - ${point.parsedPeople.weekendTo}</p>
-                  <p class="text-green-600">Avg: ${Math.round(point.avgWeekendVisitors)}</p>
+                  <p class="text-green-600">${t('map.avg')} ${Math.round(point.avgWeekendVisitors)}</p>
                 </div>
               </div>
               <div class="mt-3 pt-2 border-t border-gray-200">
@@ -228,7 +230,7 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
                   class="text-xs text-blue-600 hover:text-blue-800 underline flex items-center gap-1"
                 >
                   <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                  Open in Google Maps
+                  ${t('map.openInGoogleMaps')}
                 </a>
               </div>
             </div>
@@ -249,7 +251,7 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
 
     return () => {
       newMarkers.forEach(marker => { 
-        try { marker.setMap(null); } catch {}
+        marker.setMap(null); 
       });
     };
   };
@@ -261,16 +263,16 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
         <div ref={overlayRef} className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10 pointer-events-none">
           <div className="text-center pointer-events-auto">
             <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading Google Maps...</p>
+            <p className="text-gray-600">{t('map.loading')}</p>
           </div>
         </div>
       )}
       {error && (
         <div ref={overlayRef} className="absolute inset-0 flex items-center justify-center bg-gray-100 p-8 z-10 pointer-events-none">
           <div className="text-center text-red-600 pointer-events-auto">
-            <p className="font-medium mb-2">Map Error</p>
+            <p className="font-medium mb-2">{t('map.error')}</p>
             <p className="text-sm text-gray-600">{error}</p>
-            <p className="text-xs text-gray-400 mt-4">Add VITE_GOOGLE_MAPS_API_KEY to .env file</p>
+            <p className="text-xs text-gray-400 mt-4">{t('map.addApiKey')}</p>
           </div>
         </div>
       )}

@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { FolderOpen, ChevronDown, MapPin, Loader2, CheckSquare, Square, ChevronRight, X, Store } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import type { DataSubfolder, DataFile, ProcessedPoint } from '../types/data';
 import { loadAllSubfolders, loadDataFile } from '../utils/dataLoader';
 
@@ -18,11 +19,11 @@ interface SidebarProps {
 }
 
 const prefixLabels: Record<string, string> = {
-  accomodation: 'Accommodation',
-  activity: 'Activity',
-  leisure: 'Leisure',
-  market: 'Market',
-  travel: 'Travel',
+  accomodation: 'categories.accomodation',
+  activity: 'categories.activity',
+  leisure: 'categories.leisure',
+  market: 'categories.market',
+  travel: 'categories.travel',
 };
 
 function getPrefix(fileName: string): string {
@@ -51,6 +52,7 @@ export function Sidebar({
   style,
   totalPoints,
 }: SidebarProps) {
+  const { t } = useTranslation();
   const [subfolders, setSubfolders] = useState<DataSubfolder[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedFiles, setExpandedFiles] = useState<Set<string>>(new Set());
@@ -108,7 +110,7 @@ export function Sidebar({
       <div className="flex flex-col h-full bg-gray-50 border-r border-gray-200 p-4">
         <div className="flex items-center gap-2 text-gray-500">
           <Loader2 className="h-5 w-5 animate-spin" />
-          <span>Loading data...</span>
+          <span>{t('sidebar.loadingData')}</span>
         </div>
       </div>
     );
@@ -119,13 +121,13 @@ export function Sidebar({
       <div className="p-4 border-b border-gray-200 flex items-center justify-between">
         <div className="flex-1 flex items-center gap-2">
           <Store className="h-6 w-6 text-blue-600" />
-          <h1 className="text-lg font-semibold text-gray-900">Vending Information System</h1>
+          <h1 className="text-lg font-semibold text-gray-900">{t('app.title')}</h1>
         </div>
         {onClose && (
           <button
             onClick={onClose}
             className="lg:hidden p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors ml-4"
-            aria-label="Close sidebar"
+            aria-label={t('sidebar.closeSidebar')}
           >
             <X className="h-6 w-6" />
           </button>
@@ -135,7 +137,7 @@ export function Sidebar({
       <div className="p-4 border-b border-gray-200 flex flex-col gap-3">
         <div>
           <label htmlFor="subfolder-select" className="block text-sm font-medium text-gray-700 mb-2">
-            Data Category
+            {t('sidebar.dataCategory')}
           </label>
           <select
             id="subfolder-select"
@@ -156,14 +158,14 @@ export function Sidebar({
           className="flex-1 px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors flex items-center justify-center gap-1"
         >
           <CheckSquare className="h-4 w-4" />
-          Check All
+          {t('sidebar.checkAll')}
         </button>
         <button
           onClick={onUncheckAll}
           className="flex-1 px-3 py-2 bg-gray-200 text-gray-700 text-sm rounded hover:bg-gray-300 transition-colors flex items-center justify-center gap-1"
         >
           <Square className="h-4 w-4" />
-          Uncheck All
+          {t('sidebar.uncheckAll')}
         </button>
       </div>
       </div>
@@ -186,14 +188,14 @@ export function Sidebar({
                     className={`h-5 w-5 text-gray-500 transition-transform ${expandedGroups.has(prefix) ? 'rotate-90' : ''}`}
                   />
                   <span className="font-semibold text-gray-900 text-sm">
-                    {prefixLabels[prefix] || prefix}
+                    {t(prefixLabels[prefix] || `categories.${prefix}`)}
                   </span>
                   <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                    {files.length} items
+                    {t('sidebar.itemsCount', { count: files.length })}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-gray-500">
-                  <span>{files.reduce((sum, f) => sum + f.points.length, 0)} points</span>
+                  <span>{t('sidebar.pointsCount', { count: files.reduce((sum, f) => sum + f.points.length, 0) })}</span>
                 </div>
               </button>
               {expandedGroups.has(prefix) && (
@@ -220,7 +222,7 @@ export function Sidebar({
                           </label>
                         </div>
                         <span className="text-xs text-gray-500 bg-white px-2 py-1 rounded">
-                          {file.points.length} points
+                          {t('sidebar.pointsCount', { count: file.points.length })}
                         </span>
                       </div>
                       
@@ -236,7 +238,7 @@ export function Sidebar({
                         <ChevronDown
                           className={`h-4 w-4 transition-transform ${expandedFiles.has(file.name) ? 'rotate-180' : ''}`}
                         />
-                        <span>{expandedFiles.has(file.name) ? 'Hide' : 'Show'} points</span>
+                        <span>{expandedFiles.has(file.name) ? t('sidebar.hide') : t('sidebar.show')} {t('sidebar.points')}</span>
                       </button>
 
                       {expandedFiles.has(file.name) && (
@@ -249,13 +251,13 @@ export function Sidebar({
                               <MapPin className="h-3 w-3 text-gray-400" />
                               <span className="truncate">{point.name}</span>
                               <span className="text-gray-400 ml-auto">
-                                ~{Math.round(point.avgWeeklyVisitors)} wk / {Math.round(point.avgWeekendVisitors)} we
+                                {t('sidebar.weeklyVisitors', { weekly: Math.round(point.avgWeeklyVisitors), weekend: Math.round(point.avgWeekendVisitors) })}
                               </span>
                             </div>
                           ))}
                           {file.points.length > 20 && (
                             <div className="text-xs text-gray-500 px-2 py-1 italic">
-                              ... and {file.points.length - 20} more points
+                              {t('sidebar.morePoints', { count: file.points.length - 20 })}
                             </div>
                           )}
                         </div>
@@ -269,7 +271,7 @@ export function Sidebar({
         ) : (
           <div className="text-center text-gray-500 py-8">
             <FolderOpen className="h-12 w-12 mx-auto mb-2 opacity-50" />
-            <p>No data files found</p>
+            <p>{t('sidebar.noDataFiles')}</p>
           </div>
         )}
       </div>
@@ -280,13 +282,13 @@ export function Sidebar({
             <span className="w-5 h-5 flex items-center justify-center">
               <span className="text-xs">📁</span>
             </span>
-            <span>{checkedFiles.size} data file(s) selected</span>
+            <span>{t('sidebar.selectedFiles', { count: checkedFiles.size })}</span>
           </p>
           <p className="mt-1 flex items-center gap-2">
             <span className="w-5 h-5 flex items-center justify-center">
               <span className="text-xs">📍</span>
             </span>
-            <span>{totalPoints} points on map</span>
+            <span>{t('sidebar.pointsOnMap', { count: totalPoints })}</span>
           </p>
         </div>
       </div>

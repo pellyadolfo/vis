@@ -1,11 +1,14 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { Topbar } from './components/Topbar';
 import { Sidebar } from './components/Sidebar';
 import { MapComponent } from './components/MapComponent';
+import { useTranslation } from 'react-i18next';
+import i18n from './i18n';
 import type { DataSubfolder, ProcessedPoint } from './types/data';
 import { loadAllSubfolders, loadDataFile } from './utils/dataLoader';
 
 function App() {
+  const { t } = useTranslation();
   const [subfolders, setSubfolders] = useState<DataSubfolder[]>([]);
   const [selectedSubfolder, setSelectedSubfolder] = useState<string>('morelos');
   const [checkedFiles, setCheckedFiles] = useState<Set<string>>(new Set());
@@ -15,6 +18,11 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [proportionalMode, setProportionalMode] = useState<'off' | 'weekday' | 'weekend'>('off');
   const [showMapLabels, setShowMapLabels] = useState(true);
+  const [language, setLanguage] = useState<'en' | 'es'>('es');
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]);
 
   const loadInitialData = useCallback(async () => {
     try {
@@ -161,7 +169,7 @@ function App() {
       <div className="h-screen w-screen flex items-center justify-center bg-gray-100">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading Vending Information System...</p>
+          <p className="text-gray-600">{t('app.loading')}</p>
         </div>
       </div>
     );
@@ -201,6 +209,8 @@ function App() {
           onProportionalModeChange={setProportionalMode}
           showMapLabels={showMapLabels}
           onShowMapLabelsChange={setShowMapLabels}
+          language={language}
+          onLanguageChange={setLanguage}
         />
         <div className="flex-1 relative min-h-0">
           <MapComponent points={filteredPoints} categoryColors={categoryColors} proportionalMode={proportionalMode} showMapLabels={showMapLabels} />
