@@ -1,7 +1,7 @@
 {
   "app": {
-    "title": "Vending Information System",
-    "loading": "Loading Vending Information System..."
+    "title": "Vendingtelligence",
+    "loading": "Loading Vendingtelligence..."
   },
   "sidebar": {
     "dataCategory": "Data Category",
@@ -60,7 +60,6 @@
     "government": "Government",
     "hospitals": "Hospitals",
     "industry": "Industry",
-    "kinder": "Kindergarten",
     "notary": "Notary",
     "schools": "Schools",
     "sport": "Sport",

@@ -145,7 +145,6 @@ function App() {
       'activity-government',
       'activity-hospitals',
       'activity-industry',
-      'activity-kinder',
       'activity-notary',
       'activity-schools',
       'activity-sport',

@@ -1,13 +1,14 @@
 [
-	{ "name": "Mercado Adolfo López Mateos (Cuernavaca)", "coords": "18.9201, -99.2289", "people": "8000, 12000, 15000, 20000" },
+	{ "name": "Mercado Adolfo López Mateos (Cuernavaca)", "coords": "18.92615371570663, -99.23303542972607", "people": "8000, 12000, 15000, 20000" },
 	{ "name": "Mercado Central de Cuautla", "coords": "18.8145, -98.9521", "people": "6000, 9000, 12000, 16000" },
 	{ "name": "Mercado Municipal de Jiutepec", "coords": "18.8856, -99.1678", "people": "4000, 6000, 8000, 11000" },
-	{ "name": "Mercado de Abastos de Cuernavaca", "coords": "18.9189, -99.2267", "people": "3500, 5500, 7000, 10000" },
+	{ "name": "Mercado de Abastos de Cuernavaca", "coords": "18.925483893081772, -99.23350481623918", "people": "3500, 5500, 7000, 10000" },
 	{ "name": "Mercado del Pueblo (Temixco)", "coords": "18.8512, -99.2267", "people": "2500, 4000, 5000, 7500" },
 	{ "name": "Mercado Municipal de Yautepec", "coords": "18.8765, -99.0756", "people": "2000, 3500, 4500, 6500" },
 	{ "name": "Mercado de Tepoztlán", "coords": "18.9823, -99.0898", "people": "1800, 3000, 5000, 7000" },
 	{ "name": "Mercado de Jojutla", "coords": "18.6156, -99.2234", "people": "1500, 2500, 3500, 5000" },
 	{ "name": "Mercado Municipal de Zacatepec", "coords": "18.6523, -99.1845", "people": "1200, 2000, 3000, 4500" },
+	
 	{ "name": "Mercado de Tlayacapan", "coords": "18.9567, -98.9823", "people": "1000, 1800, 2500, 3500" },
 	{ "name": "Mercado de Tetecala", "coords": "18.7245, -99.3756", "people": "800, 1400, 2000, 3000" },
 	{ "name": "Mercado de Jonacatepec", "coords": "18.6876, -98.8034", "people": "700, 1200, 1800, 2500" },
