@@ -133,6 +133,7 @@ function App() {
       'accomodation-elder',
       'accomodation-hotel',
       'accomodation-residential',
+      'activity-company',
       'activity-government',
       'activity-hospitals',
       'activity-industry',

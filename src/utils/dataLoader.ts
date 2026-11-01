@@ -42,6 +42,7 @@ export async function loadSubfolder(subfolder: string): Promise<DataFile[]> {
     'accomodation-elder.json',
     'accomodation-hotel.json',
     'accomodation-residential.json',
+    'activity-company.json',
     'activity-government.json',
     'activity-hospitals.json',
     'activity-industry.json',

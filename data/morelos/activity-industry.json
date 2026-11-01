@@ -2,21 +2,12 @@
 	{ "name": "Parque Industrial Cuernavaca (PICU)", "coords": "18.9089, -99.2356", "people": "5000, 8000, 1000, 500" },
 	{ "name": "Parque Industrial Civac (Jiutepec)", "coords": "18.8798, -99.1723", "people": "4500, 7000, 800, 400" },
 	{ "name": "Parque Industrial Cuautla", "coords": "18.8089, -98.9456", "people": "3500, 5500, 700, 350" },
-	{ "name": "Complejo Industrial Nissan (Civac)", "coords": "18.8856, -99.1678", "people": "3000, 4800, 600, 300" },
 	{ "name": "Parque Industrial Emiliano Zapata (Temixco)", "coords": "18.8512, -99.2267", "people": "2500, 4000, 500, 250" },
-	{ "name": "Planta Coca-Cola FEMSA (Cuernavaca)", "coords": "18.9156, -99.2189", "people": "2000, 3200, 400, 200" },
 	{ "name": "Parque Industrial Yautepec", "coords": "18.8765, -99.0756", "people": "1800, 2800, 350, 180" },
-	{ "name": "Planta Bimbo (Jiutepec)", "coords": "18.8823, -99.1698", "people": "1500, 2400, 300, 150" },
 	{ "name": "Parque Industrial Tepoztlán", "coords": "18.9756, -99.0967", "people": "1200, 2000, 250, 120" },
-	{ "name": "Planta PepsiCo (Cuautla)", "coords": "18.8123, -98.9534", "people": "1100, 1800, 220, 110" },
 	{ "name": "Parque Industrial Zacatepec", "coords": "18.6523, -99.1845", "people": "1000, 1600, 200, 100" },
-	{ "name": "Planta Nestlé (Cuernavaca)", "coords": "18.9234, -99.2156", "people": "900, 1400, 180, 90" },
 	{ "name": "Parque Industrial Jojutla", "coords": "18.6156, -99.2234", "people": "800, 1300, 160, 80" },
-	{ "name": "Planta Herdez (Cuautla)", "coords": "18.8167, -98.9489", "people": "750, 1200, 150, 75" },
 	{ "name": "Parque Industrial Tlayacapan", "coords": "18.9567, -98.9823", "people": "700, 1100, 140, 70" },
-	{ "name": "Planta Gamesa (Jiutepec)", "coords": "18.8856, -99.1678", "people": "650, 1000, 130, 65" },
 	{ "name": "Parque Industrial Tetecala", "coords": "18.7245, -99.3756", "people": "600, 950, 120, 60" },
-	{ "name": "Planta Modelo (Cuernavaca)", "coords": "18.9189, -99.2267", "people": "550, 900, 110, 55" },
-	{ "name": "Parque Industrial Ayala", "coords": "18.7543, -98.9845", "people": "500, 800, 100, 50" },
-	{ "name": "Planta Corona (Temixco)", "coords": "18.8512, -99.2267", "people": "450, 750, 90, 45" }
+	{ "name": "Parque Industrial Ayala", "coords": "18.7543, -98.9845", "people": "500, 800, 100, 50" }
 ]
