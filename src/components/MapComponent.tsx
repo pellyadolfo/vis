@@ -8,13 +8,14 @@ interface MapComponentProps {
   center?: { lat: number; lng: number };
   zoom?: number;
   proportionalMode?: 'off' | 'weekday' | 'weekend';
+  showMapLabels?: boolean;
 }
 
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
 
 const DEFAULT_ICON_PATH = 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z';
 
-export function MapComponent({ points, categoryColors = new Map(), center = { lat: 18.92, lng: -99.23 }, zoom = 11, proportionalMode = 'off' }: MapComponentProps) {
+export function MapComponent({ points, categoryColors = new Map(), center = { lat: 18.92, lng: -99.23 }, zoom = 11, proportionalMode = 'off', showMapLabels = true }: MapComponentProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
@@ -22,6 +23,41 @@ export function MapComponent({ points, categoryColors = new Map(), center = { la
   const infoWindowRef = useRef<google.maps.InfoWindow | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const HIDE_LABELS_STYLE: google.maps.MapTypeStyle[] = [
+    {
+      featureType: 'poi',
+      elementType: 'labels',
+      stylers: [{ visibility: 'off' }],
+    },
+    {
+      featureType: 'road',
+      elementType: 'labels',
+      stylers: [{ visibility: 'off' }],
+    },
+    {
+      featureType: 'transit',
+      elementType: 'labels',
+      stylers: [{ visibility: 'off' }],
+    },
+    {
+      featureType: 'administrative',
+      elementType: 'labels',
+      stylers: [{ visibility: 'off' }],
+    },
+    {
+      featureType: 'landscape',
+      elementType: 'labels',
+      stylers: [{ visibility: 'off' }],
+    },
+  ];
+
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (map) {
+      map.setOptions({ styles: showMapLabels ? [] : HIDE_LABELS_STYLE });
+    }
+  }, [showMapLabels]);
 
   useEffect(() => {
     console.log('[MapComponent] useEffect init, API Key:', !!GOOGLE_MAPS_API_KEY);

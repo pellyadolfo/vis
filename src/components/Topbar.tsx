@@ -1,4 +1,4 @@
-import { Info, Filter, X, Menu, Sun, Moon } from 'lucide-react';
+import { Info, Filter, X, Menu, Calendar, CalendarOff, Eye, EyeOff } from 'lucide-react';
 
 interface TopbarProps {
   weekdayThreshold: number;
@@ -6,9 +6,11 @@ interface TopbarProps {
   onMenuClick: () => void;
   proportionalMode: 'off' | 'weekday' | 'weekend';
   onProportionalModeChange: (value: 'off' | 'weekday' | 'weekend') => void;
+  showMapLabels: boolean;
+  onShowMapLabelsChange: (value: boolean) => void;
 }
 
-export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick, proportionalMode, onProportionalModeChange }: TopbarProps) {
+export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick, proportionalMode, onProportionalModeChange, showMapLabels, onShowMapLabelsChange }: TopbarProps) {
   return (
     <header className="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
 <div className="flex items-center justify-between flex-wrap gap-4">
@@ -55,7 +57,7 @@ export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick
               aria-label={proportionalMode === 'weekday' ? 'Disable weekday proportional circles' : 'Show weekday proportional circles'}
               aria-pressed={proportionalMode === 'weekday'}
             >
-              <Sun className="h-5 w-5" />
+              <Calendar className="h-5 w-5" />
             </button>
             <button
               onClick={() => onProportionalModeChange(proportionalMode === 'weekend' ? 'off' : 'weekend')}
@@ -64,7 +66,16 @@ export function Topbar({ weekdayThreshold, onWeekdayThresholdChange, onMenuClick
               aria-label={proportionalMode === 'weekend' ? 'Disable weekend proportional circles' : 'Show weekend proportional circles'}
               aria-pressed={proportionalMode === 'weekend'}
             >
-              <Moon className="h-5 w-5" />
+              <CalendarOff className="h-5 w-5" />
+            </button>
+            <button
+              onClick={() => onShowMapLabelsChange(!showMapLabels)}
+              className={`p-2 rounded-lg transition-colors ${showMapLabels ? 'bg-green-100 text-green-700' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'}`}
+              title={showMapLabels ? 'Hide Google Maps labels' : 'Show Google Maps labels'}
+              aria-label={showMapLabels ? 'Hide Google Maps labels' : 'Show Google Maps labels'}
+              aria-pressed={!showMapLabels}
+            >
+              {showMapLabels ? <Eye className="h-5 w-5" /> : <EyeOff className="h-5 w-5" />}
             </button>
           </div>
           <Info className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer" />

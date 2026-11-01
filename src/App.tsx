@@ -14,6 +14,7 @@ function App() {
   const [weekdayThreshold, setWeekdayThreshold] = useState<number>(500);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [proportionalMode, setProportionalMode] = useState<'off' | 'weekday' | 'weekend'>('off');
+  const [showMapLabels, setShowMapLabels] = useState(true);
 
   const loadInitialData = useCallback(async () => {
     try {
@@ -197,9 +198,11 @@ function App() {
           onMenuClick={() => setSidebarOpen(true)}
           proportionalMode={proportionalMode}
           onProportionalModeChange={setProportionalMode}
+          showMapLabels={showMapLabels}
+          onShowMapLabelsChange={setShowMapLabels}
         />
         <div className="flex-1 relative min-h-0">
-          <MapComponent points={filteredPoints} categoryColors={categoryColors} proportionalMode={proportionalMode} />
+          <MapComponent points={filteredPoints} categoryColors={categoryColors} proportionalMode={proportionalMode} showMapLabels={showMapLabels} />
         </div>
       </div>
     </div>
