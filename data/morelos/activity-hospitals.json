@@ -3,9 +3,9 @@
 	{ "name": "Hospital General de Cuernavaca Dr. José G. Parres (Cuernavaca)", "coords": "18.935960312602305, -99.23298573007354", "people": "800, 1200, 200, 300" },
 	{ "name": "Hospital Regional Centenario de la Revolución Mexicana (ISSSTE)", "coords": "18.847437111816816, -99.19786560190101", "people": "700, 1000, 100, 120" },
 	{ "name": "Hospital del Niño Morelense (HNM) (Emiliano Zapata)", "coords": "18.844382174253848, -99.20232270309111", "people": "400, 650, 100, 150" },
-	{ "name": "Hospital General de Zona No. 7 del IMSS (Cuautla)", "coords": "18.81076427408228, -98.94938227492058", "people": "400, 600, 100, 150" },
+	{ "name": "Hospital General de Zona No. 7 del IMSS (Cuautla)", "coords": "18.810621609385766, -98.94921955455604", "people": "400, 600, 100, 150" },
 
-	{ "name": "Hospital General IMSS-Bienestar de Jiutepec", "coords": "18.875590645316354, -99.16912519200514", "people": "200, 300, 50, 90" },
+	{ "name": "Hospital General IMSS-Bienestar de Jiutepec", "coords": "18.875550055631777, -99.1691359176839", "people": "200, 300, 50, 90" },
 	{ "name": "Hospital General de Cuautla Dr. Mauro Belaunzarán Tapia", "coords": "18.84590687270793, -98.93931113138062", "people": "350, 500, 150, 200" },
 	{ "name": "Sanatorio Henri Dunant, A.C.", "coords": "18.9284, -99.2205", "people": "120, 220, 60, 110" },
 	{ "name": "Hospital Morelos", "coords": "18.9192, -99.2197", "people": "80, 150, 40, 70" },
