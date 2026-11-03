@@ -171,7 +171,7 @@ export function Sidebar({
       </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 p-4 space-y-4">
         {currentSubfolder ? (
           Object.entries(groupedFiles).map(([prefix, files]) => (
             <div key={prefix} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
@@ -200,7 +200,7 @@ export function Sidebar({
                 </div>
               </button>
               {expandedGroups.has(prefix) && (
-                <div className="p-2 space-y-1">
+                <div className="p-2 space-y-1 max-h-96 overflow-y-auto">
                   {files.map((file) => (
                     <div
                       key={file.name}
