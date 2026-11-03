@@ -50,9 +50,9 @@
   },
   "categories": {
     "accomodation": "Accommodation",
-    "activity": "Activity",
+    "services": "Services",
     "leisure": "Leisure",
-    "market": "Market",
+    "products": "Products",
     "travel": "Travel",
     "elder": "Elder Care",
     "hotel": "Hotel",

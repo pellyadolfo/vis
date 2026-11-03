@@ -20,9 +20,9 @@ interface SidebarProps {
 
 const prefixLabels: Record<string, string> = {
   accomodation: 'categories.accomodation',
-  activity: 'categories.activity',
+  services: 'categories.services',
   leisure: 'categories.leisure',
-  market: 'categories.market',
+  products: 'categories.products',
   travel: 'categories.travel',
 };
 

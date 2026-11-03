@@ -50,9 +50,9 @@
   },
   "categories": {
     "accomodation": "Alojamiento",
-    "activity": "Actividad",
+    "services": "Servicios",
     "leisure": "Ocio",
-    "market": "Mercado",
+    "products": "Productos",
     "travel": "Transporte",
     "elder": "Residencias",
     "hotel": "Hotel",

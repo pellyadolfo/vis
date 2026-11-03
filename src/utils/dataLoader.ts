@@ -38,25 +38,25 @@ export async function loadDataFile(relativePath: string, category: string): Prom
 }
 
 export async function loadSubfolder(subfolder: string): Promise<DataFile[]> {
-  const files = [
+const files = [
     'accomodation-elder.json',
     'accomodation-hotel.json',
     'accomodation-residential.json',
-    'activity-company.json',
-    'activity-government.json',
-    'activity-hospitals.json',
-    'activity-industry.json',
-    'activity-notary.json',
-    'activity-schools.json',
-    'activity-sport.json',
-    'activity-universities.json',
-    'leisure-park.json',
-    'leisure-restaurant.json',
-    'leisure-street.json',
-    'market-food.json',
-    'market-nofood.json',
+    'products-food.json',
+    'products-nofood.json',
+    'services-company.json',
+    'services-government.json',
+    'services-hospitals.json',
+    'services-industry.json',
+    'services-notary.json',
+    'services-schools.json',
+    'services-sport.json',
+    'services-universities.json',
     'travel-tourism.json',
     'travel-transport.json',
+		'leisure-park.json',
+    'leisure-restaurant.json',
+    'leisure-street.json',
   ];
 
   const dataFiles: DataFile[] = [];
