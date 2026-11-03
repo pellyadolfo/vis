@@ -24,6 +24,7 @@ const prefixLabels: Record<string, string> = {
   leisure: 'categories.leisure',
   products: 'categories.products',
   travel: 'categories.travel',
+  hotspots: 'categories.hotspots',
 };
 
 function getPrefix(fileName: string): string {

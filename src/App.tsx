@@ -156,6 +156,9 @@ function App() {
       'products-nofood',
       'travel-tourism',
       'travel-transport',
+      'hotspots-companies',
+      'hotspots-pedestrians',
+      'hotspots-residencial',
     ];
     allCategories.forEach((cat, index) => {
       map.set(cat, colors[index % colors.length]);

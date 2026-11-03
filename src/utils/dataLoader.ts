@@ -52,11 +52,14 @@ const files = [
     'services-schools.json',
     'services-sport.json',
     'services-universities.json',
-    'travel-tourism.json',
-    'travel-transport.json',
-		'leisure-park.json',
+    'leisure-park.json',
     'leisure-restaurant.json',
     'leisure-street.json',
+    'travel-tourism.json',
+    'travel-transport.json',
+    'hotspots-companies.json',
+    'hotspots-pedestrians.json',
+    'hotspots-residencial.json',
   ];
 
   const dataFiles: DataFile[] = [];
@@ -64,13 +67,11 @@ const files = [
     try {
       const category = file.replace('.json', '');
       const points = await loadDataFile(`/${subfolder}/${file}`, category);
-      if (points.length > 0) {
-        dataFiles.push({
-          name: category,
-          path: `/${subfolder}/${file}`,
-          points,
-        });
-      }
+      dataFiles.push({
+        name: category,
+        path: `/${subfolder}/${file}`,
+        points,
+      });
     } catch {
       // File doesn't exist or failed to load, skip
     }
