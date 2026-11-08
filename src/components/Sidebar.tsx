@@ -27,6 +27,15 @@ const prefixLabels: Record<string, string> = {
   hotspots: 'categories.hotspots',
 };
 
+const groupDisplayOrder = [
+  'accomodation',
+  'products',
+  'services',
+  'travel',
+  'leisure',
+  'hotspots',
+];
+
 function getPrefix(fileName: string): string {
   return fileName.split('-')[0];
 }
@@ -173,7 +182,11 @@ export function Sidebar({
 
       <div className="flex-1 p-4 space-y-4">
         {currentSubfolder ? (
-          Object.entries(groupedFiles).map(([prefix, files]) => (
+          groupDisplayOrder
+            .filter((prefix) => groupedFiles[prefix])
+            .map((prefix) => {
+              const files = groupedFiles[prefix];
+              return (
             <div key={prefix} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
               <button
                 onClick={() => setExpandedGroups(prev => {
@@ -268,8 +281,8 @@ export function Sidebar({
                 </div>
               )}
             </div>
-          ))
-        ) : (
+          )}))
+        : (
           <div className="text-center text-gray-500 py-8">
             <FolderOpen className="h-12 w-12 mx-auto mb-2 opacity-50" />
             <p>{t('sidebar.noDataFiles')}</p>
